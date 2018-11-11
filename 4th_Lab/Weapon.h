@@ -1,5 +1,5 @@
-#ifndef _SHAPE_H_
-#define _SHAPE_H_
+#ifndef _WEAPON_H_
+#define _WEAPON_H_
 #include <iostream>
 #include <string>
 
@@ -20,7 +20,7 @@ namespace AircraftÑarrierGroup
 			NameAmmunition = Munition;
 			RateFire = RateFireTmp;
 			Damage = DamageTmp;
-		}
+		};
 
 		//Äåñòğóêòîğ
 		~Weapon() {
@@ -28,7 +28,7 @@ namespace AircraftÑarrierGroup
 			NameAmmunition = nullptr;
 			RateFire = 0;
 			Damage = 0;
-		}
+		};
 
 		//Äğóãèå ìåòîäû êëàññà
 		Weapon& SetWeapon(std::string Weapon) { NameWeapon = Weapon; };

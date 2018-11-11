@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "Weapon.h"
 
-#include "Weapon.h"
-
 namespace AircraftСarrierGroup {
 
 	//Входной/выходной потоки
