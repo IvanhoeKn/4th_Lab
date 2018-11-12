@@ -22,6 +22,13 @@ namespace AircraftÑarrierGroup
 			Damage = DamageTmp;
 		};
 
+		Weapon(Weapon& Arsenal) {
+			NameWeapon = Arsenal.NameWeapon;
+			NameAmmunition = Arsenal.NameAmmunition;
+			RateFire = Arsenal.RateFire;
+			Damage = Arsenal.Damage;
+		};
+
 		//Äåñòğóêòîğ
 		~Weapon() {
 			NameWeapon = nullptr;
@@ -51,6 +58,11 @@ namespace AircraftÑarrierGroup
 		friend std::ostream& operator << (std::ostream&, const Weapon&);
 
 		friend std::istream& operator >> (std::istream&, Weapon&);
+
+		//Ïåğåãğóæåííûå îïåğàòîğû
+		Weapon& operator = (const Weapon& Arsenal);
+
+		Weapon& operator = (Weapon&& Arsenal);
 	};
 }
 #endif

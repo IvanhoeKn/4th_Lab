@@ -12,7 +12,7 @@ namespace AircraftÑarrierGroup
 		os << " Fuel Consumption --> " << Military.FuelConsumption << std::endl;
 		os << std::endl;
 		return os;
-	}
+	};
 
 	//------------------------------------------------------------
 
@@ -28,6 +28,33 @@ namespace AircraftÑarrierGroup
 		else {
 			is.clear();
 			is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			return is;
 		}
-	}
+	};
+
+	//Ïåğåãğóæåííûå îïåğàòîğû
+	MilitaryCharacteristics& MilitaryCharacteristics::operator = (const MilitaryCharacteristics& Military) {
+		Speed = Military.Speed;
+		FuelReserve = Military.FuelReserve;
+		FuelConsumption = Military.FuelConsumption;
+		return *this;
+	};
+
+	//------------------------------------------------------------
+
+	MilitaryCharacteristics& MilitaryCharacteristics::operator = (MilitaryCharacteristics&& Military) {
+		int SpeedTmp = Military.Speed;
+		Military.Speed = Speed;
+		Speed = SpeedTmp;
+
+		int FuelReserveTmp = Military.FuelReserve;
+		Military.FuelReserve = FuelReserve;
+		FuelReserve = FuelReserveTmp;
+
+		int FuelConsumptionTmp = Military.FuelConsumption;
+		Military.FuelConsumption = FuelConsumption;
+		FuelConsumption = FuelConsumptionTmp;
+		return *this;
+	};
+
 }

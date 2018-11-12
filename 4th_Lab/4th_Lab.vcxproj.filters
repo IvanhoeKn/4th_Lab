@@ -24,6 +24,9 @@
     <ClInclude Include="MilitaryCharacteristics.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Aircraft.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -38,10 +41,11 @@
     <ClCompile Include="MilitaryCharacteristics.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Aircraft.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd">
-      <Filter>Файлы заголовков</Filter>
-    </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

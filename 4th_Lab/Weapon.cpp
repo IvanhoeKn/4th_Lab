@@ -31,7 +31,38 @@ namespace AircraftÑarrierGroup {
 		else {
 			is.clear();
 			is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			return is;
 		}
 	}
+
+	//Ïåğåãğóæåííûå îïåğàòîğû
+	Weapon& Weapon::operator = (const Weapon& Arsenal) {
+		NameWeapon = Arsenal.NameWeapon;
+		NameAmmunition = Arsenal.NameAmmunition;
+		RateFire = Arsenal.RateFire;
+		Damage = Arsenal.Damage;
+		return *this;
+	};
+
+	//------------------------------------------------------------
+
+	Weapon& Weapon::operator = (Weapon&& Arsenal) {
+		std::string NameWeaponTmp = Arsenal.NameWeapon;
+		Arsenal.NameWeapon = NameWeapon;
+		NameWeapon = NameWeaponTmp;
+
+		std::string NameAmmunitionTmp = Arsenal.NameAmmunition;
+		Arsenal.NameAmmunition = NameAmmunition;
+		NameAmmunition = NameAmmunitionTmp;
+
+		int RateFireTmp = Arsenal.RateFire;
+		Arsenal.RateFire = RateFire;
+		RateFire = RateFireTmp;
+
+		int DamageTmp = Arsenal.Damage;
+		Arsenal.Damage = Damage;
+		Damage = DamageTmp;
+		return *this;
+	};
 
 }

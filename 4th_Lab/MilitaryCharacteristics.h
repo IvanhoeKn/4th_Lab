@@ -1,4 +1,4 @@
-#ifndef _WEAPON_H_
+#ifndef _CHARACTERISTICS_H_
 #define _CHARACTERISTICS_H_
 #include <iostream>
 
@@ -20,6 +20,12 @@ namespace AircraftÑarrierGroup
 			FuelConsumption = FuelConsumptionTmp;
 		};
 
+		MilitaryCharacteristics(MilitaryCharacteristics& Military) {
+			Speed = Military.Speed;
+			FuelReserve = Military.FuelReserve;
+			FuelConsumption = Military.FuelConsumption;
+		};
+
 		//Äåñòğóêòîğ
 		~MilitaryCharacteristics() {
 			Speed = 0;
@@ -28,11 +34,11 @@ namespace AircraftÑarrierGroup
 		};
 
 		//Äğóãèå ìåòîäû êëàññà
-		MilitaryCharacteristics& SetWeapon(int SpeedTmp) { Speed = SpeedTmp; };
+		MilitaryCharacteristics& SetSpeed(int SpeedTmp) { Speed = SpeedTmp; };
 
-		MilitaryCharacteristics& SetMunition(int FuelReserveTmp) { FuelReserve = FuelReserveTmp; };
+		MilitaryCharacteristics& SetFuelReserve(int FuelReserveTmp) { FuelReserve = FuelReserveTmp; };
 
-		MilitaryCharacteristics& SetRateFire(int FuelConsumptionTmp) { FuelConsumption = FuelConsumptionTmp; };
+		MilitaryCharacteristics& SetFuelConsumption(int FuelConsumptionTmp) { FuelConsumption = FuelConsumptionTmp; };
 
 		int GetSpeed() const { return Speed; };
 
@@ -44,6 +50,11 @@ namespace AircraftÑarrierGroup
 		friend std::ostream& operator << (std::ostream&, const MilitaryCharacteristics&);
 
 		friend std::istream& operator >> (std::istream&, MilitaryCharacteristics&);
+
+		//Ïåğåãğóæåííûå îïåğàòîğû
+		MilitaryCharacteristics& operator = (const MilitaryCharacteristics& Military);
+
+		MilitaryCharacteristics& operator = (MilitaryCharacteristics&& Military);
 	};
 }
 #endif
