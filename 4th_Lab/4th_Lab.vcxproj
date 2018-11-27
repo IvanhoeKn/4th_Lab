@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -152,13 +152,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Aircraft.h" />
+    <ClInclude Include="AircraftCarrier.h" />
+    <ClInclude Include="Carrier.h" />
+    <ClInclude Include="CoverShip.h" />
+    <ClInclude Include="Fleet.h" />
     <ClInclude Include="MilitaryCharacteristics.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Ship.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="4th_Lab.cpp" />
     <ClCompile Include="Aircraft.cpp" />
+    <ClCompile Include="AircraftCarrier.cpp" />
+    <ClCompile Include="Carrier.cpp" />
+    <ClCompile Include="CoverShip.cpp" />
+    <ClCompile Include="Fleet.cpp" />
     <ClCompile Include="MilitaryCharacteristics.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -166,6 +175,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>

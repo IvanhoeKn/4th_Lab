@@ -8,7 +8,7 @@ namespace AircraftÑarrierGroup
 {
 
 	class Aircraft : public MilitaryCharacteristics {
-	private:
+	protected:
 		static const int QUOTA = 3;
 		int Amount;
 		Weapon *Arr;
@@ -64,6 +64,11 @@ namespace AircraftÑarrierGroup
 			Amount = 0;
 			delete [] Arr;
 		};
+
+		//Äğóãèå ìåòîäû êëàññà
+		Weapon& getWeaponAircraft(int) const;
+
+		int getAmountWeapon() const { return Amount; };
 
 		//Ïîòîêîâûé ââîä/âûâîä
 		friend std::ostream& operator << (std::ostream&, const Aircraft&);

@@ -82,4 +82,11 @@ namespace Aircraft—arrierGroup
 		return *this;
 	};
 
+	Weapon& Aircraft::getWeaponAircraft(int Number) const {
+		if (Number < 0 || Number > Amount)
+			throw std::exception("Invalid Number of Weapon\n");
+		else
+			return Arr[Number];
+	};
+
 }

@@ -10,15 +10,16 @@ namespace AircraftÑarrierGroup
 	protected:
 		std::string NameWeapon;
 		std::string NameAmmunition;
-		int RateFire, Damage;
+		int RateFire, QuantityAmmunition, Damage;
 	public:
 		//Êîíñòðóêòîðû
-		Weapon() : NameWeapon(nullptr), NameAmmunition(nullptr), RateFire(0), Damage(0) {};
+		Weapon() : NameWeapon(nullptr), NameAmmunition(nullptr), RateFire(0), QuantityAmmunition(0), Damage(0) {};
 
-		Weapon(std::string Weapon, std::string Munition, int RateFireTmp, int DamageTmp) {
+		Weapon(std::string Weapon, std::string Munition, int RateFireTmp, int QuantityAmmunitionTmp, int DamageTmp) {
 			NameWeapon = Weapon;
 			NameAmmunition = Munition;
 			RateFire = RateFireTmp;
+			QuantityAmmunition = QuantityAmmunitionTmp;
 			Damage = DamageTmp;
 		};
 
@@ -26,6 +27,7 @@ namespace AircraftÑarrierGroup
 			NameWeapon = Arsenal.NameWeapon;
 			NameAmmunition = Arsenal.NameAmmunition;
 			RateFire = Arsenal.RateFire;
+			QuantityAmmunition = Arsenal.QuantityAmmunition;
 			Damage = Arsenal.Damage;
 		};
 
@@ -34,6 +36,7 @@ namespace AircraftÑarrierGroup
 			NameWeapon = nullptr;
 			NameAmmunition = nullptr;
 			RateFire = 0;
+			QuantityAmmunition = 0;
 			Damage = 0;
 		};
 
@@ -44,6 +47,8 @@ namespace AircraftÑarrierGroup
 
 		Weapon& SetRateFire(int RateFireTmp) { RateFire = RateFireTmp; };
 
+		Weapon& SetQuantityAmmunition(int QuantityAmmunitionTmp) { QuantityAmmunition = QuantityAmmunitionTmp; };
+		
 		Weapon& SetDamage(int DamageTmp) { Damage = DamageTmp; };
 
 		std::string GetWeapon() const { return NameWeapon; };
@@ -51,6 +56,8 @@ namespace AircraftÑarrierGroup
 		std::string GetMunition() const { return NameAmmunition; };
 
 		int GetRateFire() const { return RateFire; };
+
+		int GetQuantityAmmunition() const { return QuantityAmmunition; };
 
 		int GetDamage() const { return Damage; };
 

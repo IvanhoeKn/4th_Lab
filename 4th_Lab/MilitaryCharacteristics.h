@@ -20,6 +20,7 @@ namespace AircraftСarrierGroup
 			FuelConsumption = FuelConsumptionTmp;
 		};
 
+		//Копирующий конструктор
 		MilitaryCharacteristics(MilitaryCharacteristics& Military) {
 			Speed = Military.Speed;
 			FuelReserve = Military.FuelReserve;
