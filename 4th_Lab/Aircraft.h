@@ -14,61 +14,30 @@ namespace AircraftСarrierGroup
 		Weapon *Arr;
 	public:
 		//Конструкторы
-		Aircraft() : MilitaryCharacteristics(), Amount(0), Arr(nullptr) {};
+		Aircraft() : MilitaryCharacteristics(), Amount(0), Arr(nullptr) {}
 
-		Aircraft(int SpeedTmp, int FuelReserveTmp, int FuelConsumptionTmp) : Amount(0), Arr(nullptr) {
-			MilitaryCharacteristics(SpeedTmp, FuelConsumptionTmp, FuelReserveTmp);
-		};
+		Aircraft(int SpeedTmp, int FuelReserveTmp, int FuelConsumptionTmp) : MilitaryCharacteristics(SpeedTmp, FuelConsumptionTmp, FuelReserveTmp), Amount(0), Arr(nullptr) {}
 
-		Aircraft(int SpeedTmp, int FuelReserveTmp, int FuelConsumptionTmp, int AmountTmp = 0, Weapon* ArrTmp = nullptr) {
-			MilitaryCharacteristics(SpeedTmp, FuelConsumptionTmp, FuelReserveTmp);
-			if (Amount > QUOTA)
-				throw std::exception("Exceeded the maximum number of weapons\n");
-			else {
-				Amount = AmountTmp;
-				Arr = new Weapon[Amount];
-				for (int i = 0; i < Amount; i++)
-					Arr[i] = ArrTmp[i];
-			}
-		};
+		Aircraft(int, int, int, int, Weapon*);
 
-		Aircraft(MilitaryCharacteristics& Military, int AmountTmp = 0, Weapon* ArrTmp = nullptr) {
-			Speed = Military.GetSpeed();
-			FuelReserve = Military.GetFuelReserve();
-			FuelConsumption = Military.GetFuelConsumption();
-			if (Amount > QUOTA)
-				throw std::exception("Exceeded the maximum number of weapons\n");
-			else {
-				Amount = AmountTmp;
-				Arr = new Weapon[Amount];
-				for (int i = 0; i < Amount; i++)
-					Arr[i] = ArrTmp[i];
-			}
-		};
+		Aircraft(const MilitaryCharacteristics&, int, Weapon*);
 		
-		Aircraft(const Aircraft& Plane) {
-			MilitaryCharacteristics(Plane.Speed, Plane.FuelConsumption, Plane.FuelReserve);
-			Amount = Plane.Amount;
-			for (int i = 0; i < Amount; i++)
-				Arr[i] = Plane.Arr[i];
-		};
+		//Копирующий конструктор
+		Aircraft(const Aircraft& Plane);
 
-		Aircraft(Aircraft&& Plane) {
-			MilitaryCharacteristics(Plane.Speed, Plane.FuelConsumption, Plane.FuelReserve);
-			Amount = Plane.Amount;
-			Arr = Plane.Arr;
-		};
+		//---------------------------------
 
 		//Деструктор
 		~Aircraft() {
-			Amount = 0;
 			delete [] Arr;
 		};
+
+		//---------------------------------
 
 		//Другие методы класса
 		Weapon& getWeaponAircraft(int) const;
 
-		int getAmountWeapon() const { return Amount; };
+		int getAmountWeapon() const { return Amount; }
 
 		//Потоковый ввод/вывод
 		friend std::ostream& operator << (std::ostream&, const Aircraft&);

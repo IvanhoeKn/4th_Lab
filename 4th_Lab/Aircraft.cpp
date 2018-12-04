@@ -1,8 +1,47 @@
 #include "pch.h"
 #include "Aircraft.h"
 
-namespace Aircraft—arrierGroup
-{
+namespace Aircraft—arrierGroup {
+
+	// ÓÌÒÚÛÍÚÓ˚
+	Aircraft::Aircraft(int SpeedTmp, int FuelReserveTmp, int FuelConsumptionTmp, int AmountTmp, Weapon* ArrTmp) : MilitaryCharacteristics(SpeedTmp, FuelConsumptionTmp, FuelReserveTmp) {
+		if (Amount > QUOTA) {
+			Amount = 0;
+			Arr = nullptr;
+			throw std::exception("Exceeded the maximum number of weapons\n");
+		}
+		else {
+			Amount = AmountTmp;
+			Arr = new Weapon[Amount];
+			for (int i = 0; i < Amount; i++)
+				Arr[i] = ArrTmp[i];
+		}
+	}
+
+	Aircraft::Aircraft(const MilitaryCharacteristics& Military, int AmountTmp = 0, Weapon* ArrTmp = nullptr) : MilitaryCharacteristics(Military) {
+		if (Amount > QUOTA) {
+			Amount = 0;
+			Arr = nullptr;
+			throw std::exception("Exceeded the maximum number of weapons\n");
+		}
+		else {
+			Amount = AmountTmp;
+			Arr = new Weapon[Amount];
+			for (int i = 0; i < Amount; i++)
+				Arr[i] = ArrTmp[i];
+		}
+	}
+
+	//------------------------------------------------------------
+
+	// ÓÔËÛ˛˘ËÈ ÍÓÌÒÚÛÍÚÓ
+	Aircraft::Aircraft(const Aircraft& Plane) : MilitaryCharacteristics(Plane.Speed, Plane.FuelConsumption, Plane.FuelReserve) {
+		Amount = Plane.Amount;
+		for (int i = 0; i < Amount; i++)
+			Arr[i] = Plane.Arr[i];
+	}
+
+	//------------------------------------------------------------
 
 	//¬ıÓ‰ÌÓÈ/‚˚ıÓ‰ÌÓÈ ÔÓÚÓÍË
 	std::ostream& operator << (std::ostream& os, const Aircraft& Plane) {
@@ -10,12 +49,12 @@ namespace Aircraft—arrierGroup
 		os << " Speed --> " << Plane.Speed << std::endl;
 		os << " Fuel Reserve --> " << Plane.FuelReserve << std::endl;
 		os << " Fuel Consumption --> " << Plane.FuelConsumption << std::endl;
-		os << "		**Info about Weapon of this Airplane**" << std::endl;
+		os << " **Info about Weapon of this Airplane**" << std::endl;
 		if (Plane.Amount == 0)
-			os << "		No weapons on this plane!" << std::endl;
+			os << "    No weapons on this plane!" << std::endl;
 		else {
 			for (int i = 0; i < Plane.Amount; i++)
-				os << "		" << i + 1 << "th " << Plane.Arr[i];
+				os << "  " << i + 1 << "th " << Plane.Arr[i];
 		}
 		os << std::endl;
 		return os;
@@ -34,9 +73,13 @@ namespace Aircraft—arrierGroup
 		is >> Plane.Amount;
 		if (Plane.Amount < 0 || Plane.Amount > 3)
 			is.setstate(std::ios::failbit);
-		else
-			for (int i = 0; i < Plane.Amount; i++)
+		else{
+			Plane.Arr = new Weapon[Plane.Amount];
+			for (int i = 0; i < Plane.Amount; i++) {
+				std::cout << " First Weapon:\n";
 				is >> Plane.Arr[i];
+			}
+		}
 		if (is.good())
 			return is;
 		else {
@@ -55,7 +98,7 @@ namespace Aircraft—arrierGroup
 		for (int i = 0; i < Amount; i++)
 			Arr[i] = Plane.Arr[i];
 		return *this;
-	};
+	}
 
 	//------------------------------------------------------------
 
@@ -80,13 +123,13 @@ namespace Aircraft—arrierGroup
 		Plane.Arr = Arr;
 		Arr = ArrTmp;
 		return *this;
-	};
+	}
 
 	Weapon& Aircraft::getWeaponAircraft(int Number) const {
 		if (Number < 0 || Number > Amount)
 			throw std::exception("Invalid Number of Weapon\n");
 		else
 			return Arr[Number];
-	};
+	}
 
 }

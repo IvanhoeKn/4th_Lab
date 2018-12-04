@@ -10,43 +10,32 @@ namespace Aircraft—arrierGroup
 	protected:
 		int AmountW;
 		Weapon *ArrW;
+		//---------------------------------
+		virtual std::ostream& show(std::ostream& os) const;
+		virtual std::istream& get(std::istream&);
 	public:
-		AircraftCarrier() :Carrier() {
-			int AmountW = 0;
-			ArrW = nullptr;
-		};
+		AircraftCarrier() : Carrier(), AmountW(0), ArrW(nullptr) {}
 
-		AircraftCarrier(Captain& CommanderTmp, std::string CallTmp, int CrewTmp, MilitaryCharacteristics& CharacteristicsTmp, int AmountPTmp, Aircraft* PlaneTmp, int AmountWTmp, Weapon* ArrWTmp) {
-			Carrier(CommanderTmp, CallTmp, CrewTmp, CharacteristicsTmp, AmountPTmp, PlaneTmp);
-			AmountW = AmountWTmp;
-			ArrW = new Weapon[AmountW];
-			for (int i = 0; i < AmountW; i++)
-				ArrW[i] = ArrWTmp[i];
-
-		};
+		AircraftCarrier(std::string, const Captain&, int, const MilitaryCharacteristics&, int, Aircraft*, int, Weapon*);
 
 		// ÓÔËÛ˛˘ËÈ ÍÓÌÒÚÛÍÚÓ
-		AircraftCarrier(const AircraftCarrier& AircraftCarrierTmp) {
-			const Carrier* ptr = &AircraftCarrierTmp;
-			new Carrier(*ptr);
-			AmountW = AircraftCarrierTmp.AmountW;
-			ArrW = new Weapon[AmountW];
-			for (int i = 0; i < AmountW; i++)
-				ArrW[i] = AircraftCarrierTmp.ArrW[i];
-		};
+		AircraftCarrier(const AircraftCarrier&);
+
+		//---------------------------------
 
 		//ƒÂÒÚÛÍÚÓ
 		~AircraftCarrier() {
-			AmountW = NULL;
 			delete[] ArrW;
-		};
+		}
+
+		//---------------------------------
 
 		//ƒÛ„ËÂ ÏÂÚÓ‰˚ ÍÎ‡ÒÒ‡
-		friend std::ostream& operator << (std::ostream&, const Carrier&);
+		friend std::ostream& operator << (std::ostream&, const AircraftCarrier&);
+
+		friend std::istream& operator >> (std::istream&, AircraftCarrier&);
 
 		std::ostream& printInfoWeapon(std::ostream&) const;
-
-		std::ostream& printInfoShip(std::ostream&) const;
 
 		int DamageAllWeapons() const;
 

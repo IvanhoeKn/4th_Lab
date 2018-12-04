@@ -10,59 +10,36 @@ namespace AircraftСarrierGroup
 	protected:
 		int AmountW;
 		Weapon *ArrW;
-		Ship *Disguised;
+		std::string Disguised;
+		//---------------------------------
+		virtual std::ostream& show(std::ostream& os) const;
+		virtual std::istream& get(std::istream&);
 	public:
 		//Конструкторы
-		CoverShip() {
-			AmountW = 0;
-			ArrW = nullptr;
-			Disguised = nullptr;
-			Crew = NULL;
-			Call = "Ship default";	
-			MilitaryCharacteristics();
-			Commander = new Captain();
-		};
+		CoverShip() : Ship(), Disguised("Covered Ship default"), AmountW(0), ArrW(nullptr) {}
 
-		CoverShip(Captain& CommanderTmp, std::string CallTmp, int CrewTmp, MilitaryCharacteristics& CharacteristicsTmp, int AmountTmp, Weapon *ArrTmp, Ship *DisguisedTmp) {
-			Call = CallTmp;
-			Crew = CrewTmp;
-			Commander = new Captain(CommanderTmp);
-			AmountW = AmountTmp;
-			ArrTmp = new Weapon[AmountW];
-			for (int i; i < AmountW; i++)
-				ArrW[i] = ArrTmp[i];
-			Disguised = DisguisedTmp;
-			new MilitaryCharacteristics(CharacteristicsTmp);
-		};
+		CoverShip(std::string, const Captain&, int, const MilitaryCharacteristics&, std::string, int, Weapon *);
 
 		//Копирующий конструктор
-		CoverShip(const CoverShip &CoverShipTmp) {
-			AmountW = CoverShipTmp.AmountW;
-			ArrW = new Weapon[AmountW];
-			for (int i = 0; i < AmountW; i++)
-				ArrW[i] = CoverShipTmp.ArrW[i];
-			Disguised = CoverShipTmp.Disguised;
-			MilitaryCharacteristics(CoverShipTmp.Speed, CoverShipTmp.FuelConsumption, CoverShipTmp.FuelReserve);
-			Call = CoverShipTmp.Call;
-			Crew = CoverShipTmp.Crew;
-			Commander = new Captain(*CoverShipTmp.Commander);
-		};
+		CoverShip(const CoverShip &CoverShipTmp);
+
+		//---------------------------------
 
 		//Деструктор
 		~CoverShip() {
-			AmountW = NULL;
 			delete[] ArrW;
-			Disguised = nullptr;
-		};
+		}
+
+		//---------------------------------
 
 		//Другие методы класса
 		friend std::ostream& operator << (std::ostream&, const CoverShip&);
 
+		friend std::istream& operator >> (std::istream&, CoverShip&);
+
 		std::ostream& printInfoWeapon(std::ostream&) const;
 
-		std::ostream& printInfoShip(std::ostream&) const;
-
-		CoverShip& WeaponModification(std::string, Weapon&);
+		CoverShip& WeaponModification(std::string, const Weapon&);
 
 		double TimeFireAllWeapons() const;
 

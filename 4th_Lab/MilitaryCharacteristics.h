@@ -12,40 +12,32 @@ namespace AircraftСarrierGroup
 		int FuelConsumption;
 	public:
 		//Конструкторы
-		MilitaryCharacteristics() : Speed(0), FuelReserve(0), FuelConsumption(0) {};
+		MilitaryCharacteristics() : Speed(0), FuelReserve(0), FuelConsumption(0) {}
 
-		MilitaryCharacteristics(int SpeedTmp, int FuelConsumptionTmp, int FuelReserveTmp = 0) {
-			Speed = SpeedTmp;
-			FuelReserve = FuelReserveTmp;
-			FuelConsumption = FuelConsumptionTmp;
-		};
+		MilitaryCharacteristics(int, int, int);
 
 		//Копирующий конструктор
-		MilitaryCharacteristics(MilitaryCharacteristics& Military) {
-			Speed = Military.Speed;
-			FuelReserve = Military.FuelReserve;
-			FuelConsumption = Military.FuelConsumption;
-		};
+		MilitaryCharacteristics(const MilitaryCharacteristics&);
+
+		//---------------------------------
 
 		//Деструктор
-		~MilitaryCharacteristics() {
-			Speed = 0;
-			FuelReserve = 0;
-			FuelConsumption = 0;
-		};
+		virtual ~MilitaryCharacteristics() {}
+
+		//---------------------------------
 
 		//Другие методы класса
-		MilitaryCharacteristics& SetSpeed(int SpeedTmp) { Speed = SpeedTmp; };
+		MilitaryCharacteristics& SetSpeed(int SpeedTmp) { Speed = SpeedTmp; return *this; }
 
-		MilitaryCharacteristics& SetFuelReserve(int FuelReserveTmp) { FuelReserve = FuelReserveTmp; };
+		MilitaryCharacteristics& SetFuelReserve(int FuelReserveTmp) { FuelReserve = FuelReserveTmp; return *this; }
 
-		MilitaryCharacteristics& SetFuelConsumption(int FuelConsumptionTmp) { FuelConsumption = FuelConsumptionTmp; };
+		MilitaryCharacteristics& SetFuelConsumption(int FuelConsumptionTmp) { FuelConsumption = FuelConsumptionTmp;  return *this; }
 
-		int GetSpeed() const { return Speed; };
+		int GetSpeed() const { return Speed; }
 
-		int GetFuelReserve() const { return FuelReserve; };
+		int GetFuelReserve() const { return FuelReserve; }
 
-		int GetFuelConsumption() const { return FuelConsumption; };
+		int GetFuelConsumption() const { return FuelConsumption; }
 
 		//Потоковый ввод/вывод
 		friend std::ostream& operator << (std::ostream&, const MilitaryCharacteristics&);

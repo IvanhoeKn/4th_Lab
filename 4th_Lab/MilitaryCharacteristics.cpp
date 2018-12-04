@@ -1,27 +1,44 @@
 #include "pch.h"
 #include "MilitaryCharacteristics.h"
 
-namespace AircraftÑarrierGroup
-{
+namespace AircraftÑarrierGroup {
+
+	//Êîíñòğóêòîğû
+	MilitaryCharacteristics::MilitaryCharacteristics(int SpeedTmp, int FuelConsumptionTmp, int FuelReserveTmp = 0) {
+		Speed = SpeedTmp;
+		FuelReserve = FuelReserveTmp;
+		FuelConsumption = FuelConsumptionTmp;
+	}
+
+	//------------------------------------------------------------
+
+	//Êîïèğóşùèé êîíñòğóêòîğ
+	MilitaryCharacteristics::MilitaryCharacteristics(const MilitaryCharacteristics& Military) {
+		Speed = Military.Speed;
+		FuelReserve = Military.FuelReserve;
+		FuelConsumption = Military.FuelConsumption;
+	}
+
+	//------------------------------------------------------------
 
 	//Âõîäíîé/âûõîäíîé ïîòîêè
 	std::ostream& operator << (std::ostream& os, const MilitaryCharacteristics& Military) {
-		os << " **Military Characteristics**" << std::endl;
-		os << " Speed --> " << Military.Speed << std::endl;
-		os << " Fuel Reserve --> " << Military.FuelReserve << std::endl;
-		os << " Fuel Consumption --> " << Military.FuelConsumption << std::endl;
+		os << "   **Military Characteristics**" << std::endl;
+		os << "   Speed --> " << Military.Speed << std::endl;
+		os << "   Fuel Reserve --> " << Military.FuelReserve << std::endl;
+		os << "   Fuel Consumption --> " << Military.FuelConsumption << std::endl;
 		os << std::endl;
 		return os;
-	};
+	}
 
 	//------------------------------------------------------------
 
 	std::istream& operator >> (std::istream& is, MilitaryCharacteristics& Military) {
-		std::cout << " Speed --> ";
+		std::cout << "   Speed --> ";
 		is >> Military.Speed;
-		std::cout << " Fuel Reserve --> ";
+		std::cout << "   Fuel Reserve --> ";
 		is >> Military.FuelReserve;
-		std::cout << " Fuel Consumption --> ";
+		std::cout << "   Fuel Consumption --> ";
 		is >> Military.FuelConsumption;
 		if (is.good())
 			return is;
@@ -30,7 +47,7 @@ namespace AircraftÑarrierGroup
 			is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			return is;
 		}
-	};
+	}
 
 	//Ïåğåãğóæåííûå îïåğàòîğû
 	MilitaryCharacteristics& MilitaryCharacteristics::operator = (const MilitaryCharacteristics& Military) {
@@ -38,7 +55,7 @@ namespace AircraftÑarrierGroup
 		FuelReserve = Military.FuelReserve;
 		FuelConsumption = Military.FuelConsumption;
 		return *this;
-	};
+	}
 
 	//------------------------------------------------------------
 
@@ -46,15 +63,15 @@ namespace AircraftÑarrierGroup
 		int SpeedTmp = Military.Speed;
 		Military.Speed = Speed;
 		Speed = SpeedTmp;
-
+		//---------------------------------
 		int FuelReserveTmp = Military.FuelReserve;
 		Military.FuelReserve = FuelReserve;
 		FuelReserve = FuelReserveTmp;
-
+		//---------------------------------
 		int FuelConsumptionTmp = Military.FuelConsumption;
 		Military.FuelConsumption = FuelConsumption;
 		FuelConsumption = FuelConsumptionTmp;
 		return *this;
-	};
+	}
 
 }

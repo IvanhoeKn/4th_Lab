@@ -8,6 +8,21 @@ namespace Aircraft—arrierGroup {
 
 	std::ostream& operator << (std::ostream&, const std::pair<const std::string, Ship*> &);
 
+	class ConstFleetIt {
+	private:
+		std::map<const std::string, Ship*>::const_iterator cur;
+	public:
+		ConstFleetIt() {};
+		ConstFleetIt(std::map<const std::string, Ship*>::iterator it) :cur(it) {};
+		ConstFleetIt(std::map<const std::string, Ship*>::const_iterator it) :cur(it) {}
+		int operator != (const ConstFleetIt&) const;
+		int operator == (const ConstFleetIt&) const;
+		const std::pair<const std::string, Ship*>& operator * ();
+		const std::pair<const std::string, Ship*>* operator -> ();
+		ConstFleetIt& operator ++ ();
+		ConstFleetIt operator ++ (int);
+	};
+
 	class Fleet {
 	private:
 		Captain Admiral;
@@ -27,21 +42,6 @@ namespace Aircraft—arrierGroup {
 		int SizeFleet();
 		bool insert (const std::string&, const Ship*);
 		bool remove(const std::string&);
-	};
-
-	class ConstFleetIt {
-	private:
-		std::map<const std::string, Ship*>::const_iterator cur;
-	public:
-		ConstFleetIt() {};
-		ConstFleetIt(std::map<const std::string, Ship*>::iterator it) :cur(it) {};
-		ConstFleetIt(std::map<const std::string, Ship*>::const_iterator it) :cur(it) {}
-		int operator != (const ConstFleetIt&) const;
-		int operator == (const ConstFleetIt&) const;
-		const std::pair<const std::string, Ship*>& operator * ();
-		const std::pair<const std::string, Ship*>* operator -> ();
-		ConstFleetIt& operator ++ ();
-		ConstFleetIt operator ++ (int);
 	};
 }
 #endif

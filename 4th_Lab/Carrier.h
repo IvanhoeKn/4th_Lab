@@ -11,51 +11,33 @@ namespace AircraftÑarrierGroup
 	protected:
 		int AmountP;
 		Aircraft* Plane;
+		//---------------------------------
+		virtual std::ostream& show(std::ostream& os) const;
+		virtual std::istream& get(std::istream&);
 	public:
 		//Êîíñòðóêòîðû
-		Carrier() {
-			AmountP = NULL;
-			Plane = nullptr;
-			Crew = NULL;
-			Call = "Ship default";
-			MilitaryCharacteristics();
-			Commander = new Captain();
-		};
+		Carrier() : Ship(), AmountP(0), Plane(nullptr) {}
 
-		Carrier(Captain& CommanderTmp, std::string CallTmp, int CrewTmp, MilitaryCharacteristics& CharacteristicsTmp, int AmountPTmp, Aircraft* PlaneTmp) {
-			Call = CallTmp;
-			Crew = CrewTmp;
-			Commander = new Captain(CommanderTmp);
-			AmountP = AmountPTmp;
-			Plane = new Aircraft[AmountP];
-			for (int i = 0; i < AmountP; i++)
-				Plane[i] = PlaneTmp[i];
-			new MilitaryCharacteristics(CharacteristicsTmp);
-		};
+		Carrier(std::string, const Captain&, int, const MilitaryCharacteristics&, int, Aircraft*);
 
 		//Êîïèðóþùèé êîíñòðóêòîð
-		Carrier(const Carrier& CarrierTmp) {
-			Call = CarrierTmp.Call;
-			Crew = CarrierTmp.Crew;
-			Commander = new Captain(*CarrierTmp.Commander);
-			AmountP = CarrierTmp.AmountP;
-			Plane = new Aircraft[AmountP];
-			for (int i = 0; i < AmountP; i++)
-				Plane[i] = CarrierTmp.Plane[i];
-			new MilitaryCharacteristics(CarrierTmp.Speed, CarrierTmp.FuelConsumption, CarrierTmp.FuelReserve);
+		Carrier(const Carrier&);
+
+		//---------------------------------
+
+		//Äåñòðóêòîð
+		virtual ~Carrier() {
+			delete[] Plane;
 		}
 
-		~Carrier() {
-			AmountP = NULL;
-			delete[] Plane;
-		};
+		//---------------------------------
 
 		//Äðóãèå ìåòîäû êëàññà
 		friend std::ostream& operator << (std::ostream&, const Carrier&);
 
-		std::ostream& printInfoWeapon(std::ostream&) const;
+		friend std::istream& operator >> (std::istream&, Carrier&);
 
-		std::ostream& printInfoShip(std::ostream&) const;
+		std::ostream& printInfoWeapon(std::ostream&) const;
 
 		int DamageAllPlanes() const;
 
@@ -63,7 +45,7 @@ namespace AircraftÑarrierGroup
 
 		double TimeFireAllWeapons() const;
 
-		Carrier& WeaponModification(std::string, Weapon&);
+		Carrier& WeaponModification(std::string, const Weapon&);
 
 		virtual Carrier* clone() const {
 			return new Carrier(*this);

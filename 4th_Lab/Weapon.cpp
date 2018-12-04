@@ -3,6 +3,28 @@
 
 namespace AircraftÑarrierGroup {
 
+	//Êîíñòğóêòîğû
+	Weapon::Weapon(std::string Weapon, std::string Munition, int RateFireTmp, int QuantityAmmunitionTmp, int DamageTmp) {
+		NameWeapon = Weapon;
+		NameAmmunition = Munition;
+		RateFire = RateFireTmp;
+		QuantityAmmunition = QuantityAmmunitionTmp;
+		Damage = DamageTmp;
+	}
+
+	//------------------------------------------------------------
+
+	//Êîïèğóşùèé êîíñòğóêòîğ
+	Weapon::Weapon(const Weapon& Arsenal) {
+		NameWeapon = Arsenal.NameWeapon;
+		NameAmmunition = Arsenal.NameAmmunition;
+		RateFire = Arsenal.RateFire;
+		QuantityAmmunition = Arsenal.QuantityAmmunition;
+		Damage = Arsenal.Damage;
+	}
+
+	//------------------------------------------------------------
+
 	//Âõîäíîé/âûõîäíîé ïîòîêè
 	std::ostream& operator << (std::ostream& os, const Weapon& Arsenal) {
 		os << " **Weapon**" << std::endl;
@@ -11,7 +33,6 @@ namespace AircraftÑarrierGroup {
 		os << " Name of the Ammunition: \"" << Arsenal.NameAmmunition << "\"" << std::endl;
 		os << " Rate of Fire --> " << Arsenal.RateFire << std::endl;
 		os << " Damage --> " << Arsenal.Damage << std::endl;
-		os << std::endl;
 		return os;
 	}
 
@@ -35,6 +56,8 @@ namespace AircraftÑarrierGroup {
 		}
 	}
 
+	//------------------------------------------------------------
+
 	//Ïåğåãğóæåííûå îïåğàòîğû
 	Weapon& Weapon::operator = (const Weapon& Arsenal) {
 		NameWeapon = Arsenal.NameWeapon;
@@ -42,7 +65,7 @@ namespace AircraftÑarrierGroup {
 		RateFire = Arsenal.RateFire;
 		Damage = Arsenal.Damage;
 		return *this;
-	};
+	}
 
 	//------------------------------------------------------------
 
@@ -63,6 +86,6 @@ namespace AircraftÑarrierGroup {
 		Arsenal.Damage = Damage;
 		Damage = DamageTmp;
 		return *this;
-	};
+	}
 
 }
