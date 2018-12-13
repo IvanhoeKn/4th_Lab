@@ -49,6 +49,27 @@ namespace AircraftÑarrierGroup {
 		}
 	}
 
+	//------------------------------------------------------------
+
+	//Ïîòîêîâûé ââîä/âûâîä èç ôàéëà
+	std::ifstream& operator >> (std::ifstream& is, MilitaryCharacteristics& Military) {
+		is.read((char*) &Military.Speed, sizeof(int));
+		is.read((char*) &Military.FuelReserve, sizeof(int));
+		is.read((char*) &Military.FuelConsumption, sizeof(int));
+		return is;
+	}
+
+	//------------------------------------------------------------
+
+	std::ofstream& operator << (std::ofstream& os, const MilitaryCharacteristics& Military) {
+		os.write((char*) &Military.Speed, sizeof(int));
+		os.write((char*) &Military.FuelReserve, sizeof(int));
+		os.write((char*) &Military.FuelConsumption, sizeof(int));
+		return os;
+	}
+
+	//------------------------------------------------------------
+
 	//Ïåðåãðóæåííûå îïåðàòîðû
 	MilitaryCharacteristics& MilitaryCharacteristics::operator = (const MilitaryCharacteristics& Military) {
 		Speed = Military.Speed;

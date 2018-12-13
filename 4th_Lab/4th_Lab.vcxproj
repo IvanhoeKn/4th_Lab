@@ -160,6 +160,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="Weapon.h" />
+    <ClInclude Include="_map.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="4th_Lab.cpp" />

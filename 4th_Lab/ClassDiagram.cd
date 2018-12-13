@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="AircraftСarrierGroup::Aircraft">
-    <Position X="6.25" Y="5" Width="1.5" />
+    <Position X="10" Y="4.75" Width="3.75" />
     <TypeIdentifier>
       <HashCode>ACgAAAAAAAQAAAAAAAAAAACAAAAAAIAAAAAgQAAgAAA=</HashCode>
       <FileName>Aircraft.h</FileName>
@@ -11,23 +11,23 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="AircraftСarrierGroup::MilitaryCharacteristics">
-    <Position X="4" Y="4" Width="1.5" />
+    <Position X="4" Y="4" Width="5" />
     <TypeIdentifier>
       <HashCode>AAABMAQAAAAAAAAQAAAAABABAAEAABAAAQEgAAAAAAA=</HashCode>
       <FileName>MilitaryCharacteristics.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AircraftСarrierGroup::Weapon">
-    <Position X="8.5" Y="3.5" Width="1.5" />
+    <Position X="19.75" Y="3" Width="5" />
     <TypeIdentifier>
       <HashCode>BAIAAADGAUgAAAABAIAAAAAAAAAAAAgAAAAgAAgQACA=</HashCode>
       <FileName>Weapon.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AircraftСarrierGroup::Ship">
-    <Position X="1.25" Y="5.5" Width="1.5" />
+    <Position X="0.5" Y="5.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAIAgAAEACEAEAAACASCQAAARAAgAAAAAMIA=</HashCode>
+      <HashCode>AAAAQAAAAIAgAAEBCEAEQAAAASCQAAARBAgAEAAAMIA=</HashCode>
       <FileName>Ship.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -35,9 +35,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="AircraftСarrierGroup::Carrier">
-    <Position X="6.5" Y="10.5" Width="1.5" />
+    <Position X="5.75" Y="11.75" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAAAACAAEAAACACAAAAAQAAIAgAAAUAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAABCAAGQAAAACQAAEAQRAIAkgAAUAA=</HashCode>
       <FileName>Carrier.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -45,29 +45,21 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="AircraftСarrierGroup::CoverShip">
-    <Position X="1.75" Y="12" Width="1.5" />
-    <AssociationLine Name="Disguised" Type="AircraftСarrierGroup::Ship">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.623" Y="0.335" />
-      </MemberNameLabel>
-    </AssociationLine>
+    <Position X="0.5" Y="12" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>QQAAAAAAAAAAAAAICAAEAAACACAAAAAQAAAAABAAEIA=</HashCode>
+      <HashCode>QQAAAAAAAAAAAAAJCAAEQAAAACAAAAAQBAAAEBAAEIA=</HashCode>
       <FileName>CoverShip.h</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="Disguised" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="AircraftСarrierGroup::AircraftCarrier">
-    <Position X="8.75" Y="9" Width="1.5" />
+    <Position X="11" Y="10.25" Width="4.75" />
     <TypeIdentifier>
-      <HashCode>QAAAAEAAAAAAAAAACAAEAAACAAAAAAAQAAEAABAAEAA=</HashCode>
+      <HashCode>QAAAAEAAAAAAAAABCAAEQAAAAAAAAAAQBAEAEBAAEAA=</HashCode>
       <FileName>AircraftCarrier.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AircraftСarrierGroup::Fleet">
-    <Position X="6" Y="0.5" Width="1.5" />
+    <Position X="14.75" Y="1.5" Width="4.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -79,7 +71,7 @@
       </Typedef>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAgAACAABBAAAEAAAAAAAQAEAQAAAACAAgAAACAAA=</HashCode>
+      <HashCode>IAAQgAACAABBAAgEBAgAgAAQAEAQAABACAAkAAACAAA=</HashCode>
       <FileName>Fleet.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -87,14 +79,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="AircraftСarrierGroup::ConstFleetIt">
-    <Position X="0.5" Y="1.25" Width="1.5" />
+    <Position X="10" Y="1" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAIAAAAAQAAAAwAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Fleet.h</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="AircraftСarrierGroup::Captain">
-    <Position X="4" Y="8.5" Width="1.5" />
+    <Position X="4.5" Y="8.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAhAAAAAAAAAAAAAAAAAAQAAAAAQAAAAAAgAAAAQAA=</HashCode>
       <FileName>Ship.h</FileName>

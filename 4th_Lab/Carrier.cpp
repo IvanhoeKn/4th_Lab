@@ -100,6 +100,45 @@ namespace AircraftÑarrierGroup {
 
 	//------------------------------------------------------------
 
+	std::ifstream& Carrier::fread(std::ifstream& is) {
+		int StrLn;
+		char CallBuf[80] = "";
+		MilitaryCharacteristics Military;
+		is.read((char*) &StrLn, sizeof(int));
+		is.read(CallBuf, StrLn);
+		Call = CallBuf;
+		is >> Commander;
+		is.read((char*) &Crew, sizeof(int));
+		is >> Military;
+		SetSpeed(Military.GetSpeed());
+		SetFuelReserve(Military.GetFuelReserve());
+		SetFuelConsumption(Military.GetFuelConsumption());
+		is.read((char*) &AmountP, sizeof(int));
+		Plane = new Aircraft[AmountP];
+		for (int i = 0; i < AmountP; i++)
+			is >> Plane[i];
+		return is;
+	}
+
+	//------------------------------------------------------------
+
+	std::ofstream& Carrier::fprint(std::ofstream& os) const {
+		int tmp;
+		MilitaryCharacteristics Military(*this);
+		tmp = Call.size();
+		os.write((char*) &tmp, sizeof(int));
+		os << Call;
+		os << Commander;
+		os.write((char*) &Crew, sizeof(int));
+		os << Military;
+		os.write((char*) &AmountP, sizeof(int));
+		for (int i = 0; i < AmountP; i++)
+			os << Plane[i];
+		return os;
+	}
+
+	//------------------------------------------------------------
+
 	std::ostream& Carrier::printInfoWeapon(std::ostream& os) const {
 		os << " **Weapon of Carrier**" << std::endl;
 		os << "   No weapons on Carrier" << std::endl;

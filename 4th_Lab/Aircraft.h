@@ -1,6 +1,7 @@
 #ifndef _AIRCRAFT_H_
 #define _AIRCRAFT_H_
 #include <iostream>
+#include <fstream>
 #include "Weapon.h"
 #include "MilitaryCharacteristics.h"
 
@@ -43,6 +44,11 @@ namespace AircraftСarrierGroup
 		friend std::ostream& operator << (std::ostream&, const Aircraft&);
 
 		friend std::istream& operator >> (std::istream&, Aircraft&);
+
+		//Потоковый ввод/вывод из файла
+		friend std::ofstream& operator << (std::ofstream&, const Aircraft&);
+
+		friend std::ifstream& operator >> (std::ifstream&, Aircraft&);
 
 		//Перегруженные операторы
 		Aircraft& operator = (const Aircraft& Plane);

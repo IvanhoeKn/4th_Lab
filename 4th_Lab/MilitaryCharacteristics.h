@@ -1,6 +1,7 @@
 #ifndef _CHARACTERISTICS_H_
 #define _CHARACTERISTICS_H_
 #include <iostream>
+#include <fstream>
 
 namespace AircraftСarrierGroup
 {
@@ -44,10 +45,15 @@ namespace AircraftСarrierGroup
 
 		friend std::istream& operator >> (std::istream&, MilitaryCharacteristics&);
 
-		//Перегруженные операторы
-		MilitaryCharacteristics& operator = (const MilitaryCharacteristics& Military);
+		//Потоковый ввод/вывод из файла
+		friend std::ofstream& operator << (std::ofstream&, const MilitaryCharacteristics&);
 
-		MilitaryCharacteristics& operator = (MilitaryCharacteristics&& Military);
+		friend std::ifstream& operator >> (std::ifstream&, MilitaryCharacteristics&);
+
+		//Перегруженные операторы
+		MilitaryCharacteristics& operator = (const MilitaryCharacteristics&);
+
+		MilitaryCharacteristics& operator = (MilitaryCharacteristics&&);
 	};
 }
 #endif

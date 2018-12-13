@@ -32,6 +32,7 @@ namespace Aircraft—arrierGroup {
 		os << " Name of the Weapon: \"" << Arsenal.NameWeapon << "\"" << std::endl;
 		os << " Name of the Ammunition: \"" << Arsenal.NameAmmunition << "\"" << std::endl;
 		os << " Rate of Fire --> " << Arsenal.RateFire << std::endl;
+		os << " QuantityAmmunition --> " << Arsenal.QuantityAmmunition << std::endl;
 		os << " Damage --> " << Arsenal.Damage << std::endl;
 		return os;
 	}
@@ -45,6 +46,8 @@ namespace Aircraft—arrierGroup {
 		is >> Arsenal.NameAmmunition;
 		std::cout << " Rate of Fire --> ";
 		is >> Arsenal.RateFire;
+		std::cout << " QuantityAmmunition --> ";
+		is >> Arsenal.QuantityAmmunition;
 		std::cout << " Damage --> ";
 		is >> Arsenal.Damage;
 		if (is.good())
@@ -54,6 +57,44 @@ namespace Aircraft—arrierGroup {
 			is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			return is;
 		}
+	}
+
+	//------------------------------------------------------------
+
+	//œÓÚÓÍÓ‚˚È ‚‚Ó‰/‚˚‚Ó‰ ËÁ Ù‡ÈÎ‡
+	std::ifstream& operator >> (std::ifstream& is, Weapon& Arsenal) {
+		int StrLn;
+		char NameWpBuf[80] = "";
+		char NameAmmoBuf[80] = "";
+		is.read((char*) &StrLn, sizeof(int));
+		is.read(NameWpBuf, StrLn);
+		Arsenal.NameWeapon = NameWpBuf;
+		is.read((char*) &StrLn, sizeof(int));
+		is.read(NameAmmoBuf, StrLn);
+		Arsenal.NameAmmunition = NameAmmoBuf;
+		is.read((char*) &Arsenal.RateFire, sizeof(int));
+		is.read((char*) &Arsenal.QuantityAmmunition, sizeof(int));
+		is.read((char*) &Arsenal.Damage, sizeof(int));
+		return is;
+	}
+
+	//------------------------------------------------------------
+
+	std::ofstream& operator << (std::ofstream& os, const Weapon& Arsenal) {
+		int tmp;
+		tmp = Arsenal.NameWeapon.size();
+		os.write((char*) &tmp, sizeof(int));
+		os << Arsenal.NameWeapon;
+		tmp = Arsenal.NameAmmunition.size();
+		os.write((char*) &tmp, sizeof(int));
+		os << Arsenal.NameAmmunition;
+		tmp = Arsenal.RateFire;
+		os.write((char*) &tmp, sizeof(int));
+		tmp = Arsenal.QuantityAmmunition;
+		os.write((char*) &tmp, sizeof(int));
+		tmp = Arsenal.Damage;
+		os.write((char*) &tmp, sizeof(int));		
+		return os;
 	}
 
 	//------------------------------------------------------------

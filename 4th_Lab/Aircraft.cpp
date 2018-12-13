@@ -80,13 +80,41 @@ namespace AircraftÑarrierGroup {
 				is >> Plane.Arr[i];
 			}
 		}
-		if (is.good())
-			return is;
-		else {
+		if (!is.good()) {
 			is.clear();
 			is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
+		return is;
 	}
+
+	//------------------------------------------------------------
+
+	//Ïîòîêîâûé ââîä/âûâîä èç ôàéëà
+	std::ifstream& operator >> (std::ifstream& is, Aircraft& Plane) {
+		MilitaryCharacteristics Military;
+		is >> Military;
+		Plane.Speed = Military.GetSpeed();
+		Plane.FuelReserve = Military.GetFuelReserve();
+		Plane.FuelConsumption = Military.GetFuelConsumption();
+		is.read((char*) &Plane.Amount, sizeof(int));
+		Plane.Arr = new Weapon[Plane.Amount];
+		for (int i = 0; i < Plane.Amount; i++)
+			is >> Plane.Arr[i];
+		return is;
+	}
+
+	//------------------------------------------------------------
+
+	std::ofstream& operator << (std::ofstream& os, const Aircraft& Plane) {
+		MilitaryCharacteristics Military(Plane);
+		os << Military;
+		os.write((char*) &Plane.Amount, sizeof(int));
+		for (int i = 0; i < Plane.Amount; i++)
+			os << Plane.Arr[i];
+		return os;
+	}
+
+	//------------------------------------------------------------
 
 	//Ïåðåãðóæåííûå îïåðàòîðû
 	Aircraft& Aircraft::operator = (const Aircraft& Plane) {

@@ -1,6 +1,7 @@
 #ifndef _WEAPON_H_
 #define _WEAPON_H_
 #include <iostream>
+#include <fstream>
 #include <string>
 
 namespace AircraftСarrierGroup
@@ -28,6 +29,8 @@ namespace AircraftСarrierGroup
 		//---------------------------------
 
 		//Другие методы класса
+		Weapon* operator *() { return this; }
+
 		Weapon& SetWeapon(std::string Weapon) { NameWeapon = Weapon; return *this; }
 
 		Weapon& SetMunition(std::string Munition) { NameAmmunition = Munition; return *this; }
@@ -53,10 +56,15 @@ namespace AircraftСarrierGroup
 
 		friend std::istream& operator >> (std::istream&, Weapon&);
 
-		//Перегруженные операторы
-		Weapon& operator = (const Weapon& Arsenal);
+		//Потоковый ввод/вывод из файла
+		friend std::ofstream& operator << (std::ofstream&, const Weapon&);
 
-		Weapon& operator = (Weapon&& Arsenal);
+		friend std::ifstream& operator >> (std::ifstream&, Weapon&);
+
+		//Перегруженные операторы
+		Weapon& operator = (const Weapon&);
+
+		Weapon& operator = (Weapon&&);
 	};
 }
 #endif

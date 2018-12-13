@@ -41,7 +41,7 @@ namespace Aircraft—arrierGroup {
 	}
 	/////////////////////////////////////////
 
-	int Fleet::SizeFleet() {
+	int Fleet::SizeFleet() const {
 		return ArrShip.size();
 	}
 
@@ -70,17 +70,6 @@ namespace Aircraft—arrierGroup {
 		}
 		return res;
 	}
-	/*
-	bool Table::replace(const std::string &s, const Shapes::Shape *f) {
-		bool res = false;
-		std::map<const std::string, Shapes::Shape *>::iterator p = arr.find(s);
-			if (p != arr.end()) { 
-				delete p->second;
-				p->second = f->clone();
-				res = true;
-			}
-		return res;
-	}*/
 
 	Fleet::Const_Iterator Fleet::find(const std::string& CallTmp) const {
 		std::map<const std::string, Ship*>::const_iterator ptr = ArrShip.find(CallTmp);
@@ -122,5 +111,67 @@ namespace Aircraft—arrierGroup {
 		ConstFleetIt res(*this);
 		++cur;
 		return res;
+	}
+
+	std::ifstream& operator >> (std::ifstream& is, Fleet& FleetTmp){
+		CoverShip ShipTmpF;
+		Carrier ShipTmpS;
+		AircraftCarrier ShipTmpT;
+		int Size;
+		is.read((char*) &Size, sizeof(int));
+		FleetTmp.ArrShip.clear();
+		for (int i = 0; i < Size; i++){
+			int StrLn, type;
+			char NameBuf[80] = "";
+			std::string name;
+			is.read((char*) &StrLn, sizeof(int));
+			is.read(NameBuf, StrLn);
+			is.read((char*) &type, sizeof(int));
+			switch (type) {
+			case 1:
+				is >> ShipTmpF;
+				FleetTmp.insert(NameBuf, &ShipTmpF);
+				break;
+			case 2:
+				is >> ShipTmpS;
+				FleetTmp.insert(NameBuf, &ShipTmpS);
+				break;
+			case 3:
+				is >> ShipTmpT;
+				FleetTmp.insert(NameBuf, &ShipTmpT);
+				break;
+			default:
+				throw std::exception(" Invalid type of Ship\n");
+				return is;
+				break;
+			}
+		}
+		return is;
+	}
+
+	std::ofstream& operator << (std::ofstream& os, const Fleet& FleetTmp){
+		int tmp;
+		tmp = FleetTmp.SizeFleet();
+		os.write((char*) &tmp, sizeof(int));
+		Fleet::Const_Iterator it;
+		for (it = FleetTmp.begin(); it != FleetTmp.end(); ++it) {
+			tmp = (*it).first.size();
+			os.write((char*) &tmp, sizeof(int));
+			os << (*it).first;
+			tmp = (*it).second->TypeShip();
+			os.write((char*) &tmp, sizeof(int));
+			os << *(*it).second;
+		}
+		return os;
+	}
+
+	std::ostream& operator << (std::ostream& os, const Fleet& FleetTmp) {
+		std::cout << "  ***Navy***" << std::endl;
+		Fleet::Const_Iterator it;
+		for (it = FleetTmp.begin(); it != FleetTmp.end(); ++it) {
+			std::cout << " Callsign of Ship: \"" << (*it).first << "\"" << std::endl;
+			std::cout << *(*it).second;
+		}
+		return os;
 	}
 };
