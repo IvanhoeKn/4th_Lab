@@ -74,6 +74,15 @@ namespace AircraftСarrierGroup
 			return 2;
 		}
 
+		//Возвращение указателя на самолет
+		Aircraft* getAir(int) const {
+
+		}
+
+		int AmountAircraft() const {
+			return AmountP;
+		}
+
 		Carrier& AddAircraft(const Aircraft& PlaneTmp) {
 			Aircraft* ArrTmp;
 			ArrTmp = new Aircraft[AmountP + 1];

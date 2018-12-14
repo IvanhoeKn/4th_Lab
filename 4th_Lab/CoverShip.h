@@ -77,6 +77,10 @@ namespace Aircraft—arrierGroup
 		virtual int TypeShip() const {
 			return 1;
 		}
+
+		int AmountAircraft() const {
+			throw std::exception("No Aircrafts on Cover Ship\n");
+		}
 	};
 }
 #endif

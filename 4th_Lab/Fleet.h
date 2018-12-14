@@ -1,6 +1,6 @@
 #ifndef _FLEET_H_
 #define _FLEET_H
-#include <map>
+#include "_map.h"
 #include <iostream>
 #include <fstream>
 #include "Ship.h"
@@ -14,15 +14,15 @@ namespace AircraftÑarrierGroup {
 
 	class ConstFleetIt {
 	private:
-		std::map<const std::string, Ship*>::const_iterator cur;
+		_map<std::string, Ship*>::_map_const_it cur;
 	public:
 		ConstFleetIt() {};
-		ConstFleetIt(std::map<const std::string, Ship*>::iterator it) :cur(it) {};
-		ConstFleetIt(std::map<const std::string, Ship*>::const_iterator it) :cur(it) {}
+		ConstFleetIt(_map<std::string, Ship*>::_map_const_it it) :cur(it) {};
+		//ConstFleetIt(_map<const std::string, Ship*>::const_iterator it) :cur(it) {}
 		int operator != (const ConstFleetIt&) const;
 		int operator == (const ConstFleetIt&) const;
-		const std::pair<const std::string, Ship*>& operator * ();
-		const std::pair<const std::string, Ship*>* operator -> ();
+		const _pair<std::string, Ship*>& operator * ();
+		const _pair<std::string, Ship*>* operator -> ();
 		ConstFleetIt& operator ++ ();
 		ConstFleetIt operator ++ (int);
 	};
@@ -30,7 +30,7 @@ namespace AircraftÑarrierGroup {
 	class Fleet {
 	private:
 		Captain Admiral;
-		std::map<const std::string, Ship*> ArrShip;
+		_map<std::string, Ship*> ArrShip;
 	public:
 		Fleet() {};
 		Fleet(const Fleet&);
@@ -48,9 +48,11 @@ namespace AircraftÑarrierGroup {
 		friend std::ifstream& operator >> (std::ifstream&, Fleet&);
 		friend std::ofstream& operator << (std::ofstream&, const Fleet&);
 
-		int SizeFleet() const;
-		bool insert (const std::string&, const Ship*);
-		bool remove(const std::string&);
+		int SizeFleet() const {
+			return ArrShip.size();
+		}
+		bool insert (std::string&, Ship*);
+		bool remove(std::string&);
 		int transferFuel(Fleet::Const_Iterator& itFr, Fleet::Const_Iterator& itTo, const int Fuel) {
 			int FuelTmp = (*itFr).second->GetFuelReserve() - Fuel;
 			(*itFr).second->SetFuelReserve(FuelTmp);
@@ -249,7 +251,7 @@ namespace AircraftÑarrierGroup {
 			else {
 				Const_Iterator it;
 				for (it = begin(); it != end(); ++it)
-					std::cout << (*it).second;
+					std::cout << *((*it).second);
 			}
 		}
 	};

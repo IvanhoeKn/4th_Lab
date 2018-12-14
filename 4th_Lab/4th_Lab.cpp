@@ -13,20 +13,21 @@ using namespace AircraftСarrierGroup;
 //------------------------------------------------------------
 
 const std::string Menu[] = { "1. Work with Navy", "2. Work with specific Ship", "3. Interaction between two Ships", "4. Work with File",
-							 "5. Finish work with this Navy", "0.Quit" };
+							 "5. Finish work with this Navy", "0. Quit" };
 const std::string NavyMenu[] = { "1.  Add a ship", "2.  Delete a ship", "3.  Add Aircraft", "4.  Delete Aircraft", 
                                  "5.  Get Ship description with call-sign", "6.  Amount of Ships", "7.  Number Ships of a certain type", 
 	                             "8.  Show Navy", "9.  Max duration flight", "10. Max radius flight", "0. Exit from this NavyMenu" };
-const std::string ShipMenu[] = { "1. All info", "2. Work with Characteristics", "3. Work with Weapon", "4. Work with Aircrafts on Ship",
-								 "5. Max Range Transition", "6. Time Fire with all weapons on Ship", "7. Damage All Weapons on Ship",
-								 "8. Damage All Aircrafts on Ship" , "0. Exit from this ShipMenu" };
+const std::string ShipMenu[] = { "1. All info", "2. Work with Characteristics", "3. Work with Weapon"/*, "4. Work with Aircrafts on Ship"*/,
+								 "4. Max Range Transition", "5. Time Fire with all weapons on Ship", "6. Damage All Weapons on Ship",
+								 "7. Damage All Aircrafts on Ship" , "0. Exit from this ShipMenu" };
 const std::string TwoShipMenu[] = { "1. Transfer fuel", "2. Transfer Aircraft" , "0. Exit from this TwoShipMenu" };
 const std::string FileMenu[] = { "1. Load File", "2. Save File", "0. Exit from this FileMenu" };
 const std::string PickShip[] = { "1. Cover Ship", "2. Carrier",  "3. Aircraft Carrier", "0. Quit" };
 const std::string ShipConfig[] = { "1. Call", "2. Captain", "3. Crew", "4. Speed", "5. Fuel Reserve", "6. Fuel Consumption", "0, Quit" };
 const std::string ShipConfigMenu[] = { "1. Show", "2. Сhange", "0. Quit" };
 const std::string WeaponConfigMenu[] = { "1. Name Weapon", "2. Name Ammunition", "3. Rate Fire", "4. Quantity Ammunition",
-                                         "5. Damage", "0. Quit" },
+										 "5. Damage", "0. Quit" };
+const std::string AircraftConfigMenu[] = { "1. Speed", "2. Fuel Reserve", "3. Fuel Consumption", "4. Quit" },
 				  Choice = "Make your choice",
 				  Msg    = "You are wrong; repeate please";
 
@@ -54,8 +55,8 @@ int MaxRadiusFlight(Fleet&);
 
 //------------------------------------------------------------
 
-int AllInfo(Fleet::Const_Iterator&);
-int ShipSetting(Fleet::Const_Iterator&);
+int AllInfo(Fleet::Const_Iterator);
+int ShipSetting(Fleet::Const_Iterator);
 //---------------------------------
 int D_Call(Fleet::Const_Iterator&);
 int D_Captain(Fleet::Const_Iterator&);
@@ -64,7 +65,7 @@ int D_Speed(Fleet::Const_Iterator&);
 int D_FuelReserve(Fleet::Const_Iterator&); 
 int D_FuelConsumption(Fleet::Const_Iterator&);
 //---------------------------------
-int WeaponSetting(Fleet::Const_Iterator&);
+int WeaponSetting(Fleet::Const_Iterator);
 //---------------------------------
 int D_NameWeapon(Weapon*);
 int D_NameAmmunition(Weapon*);
@@ -72,11 +73,16 @@ int D_RateFire(Weapon*);
 int D_QuantityAmmunition(Weapon*);
 int D_Damage(Weapon*);
 //---------------------------------
-int AircraftSetting(Fleet::Const_Iterator&);
-int MaxRange(Fleet::Const_Iterator&);
-int TimeFireShip(Fleet::Const_Iterator&);
-int DamageAllShipWeapon(Fleet::Const_Iterator&);
-int DamageAllShipPlane(Fleet::Const_Iterator&);
+//int AircraftSetting(Fleet::Const_Iterator&);
+//---------------------------------
+/*int D_Speed(Aircraft*);
+int D_FuelReserve(Aircraft*);
+int D_FuelConsumption(Aircraft*);*/
+//---------------------------------
+int MaxRange(Fleet::Const_Iterator);
+int TimeFireShip(Fleet::Const_Iterator);
+int DamageAllShipWeapon(Fleet::Const_Iterator);
+int DamageAllShipPlane(Fleet::Const_Iterator);
 
 //------------------------------------------------------------
 
@@ -99,13 +105,14 @@ int ShowShipWithWeapon(Fleet&);
 int(*Funcs[])(Fleet&) = { nullptr, NavyWork, ShipWork, TwoShipWork, FileWork, ClearNavy };
 int(*NavyFuncs[])(Fleet&) = { nullptr, Add, Remove, AddAircraft, DeleteAircraft, GetShipDescription, AmountShip,
 							 Type, ShowAll, MaxDurationFlight, MaxRadiusFlight };
-int(*ShipFuncs[])(Fleet::Const_Iterator&) = { nullptr, AllInfo, ShipSetting, WeaponSetting, AircraftSetting, MaxRange, TimeFireShip,
+int(*ShipFuncs[])(Fleet::Const_Iterator) = { nullptr, AllInfo, ShipSetting, WeaponSetting, /*AircraftSetting,*/ MaxRange, TimeFireShip,
 							  DamageAllShipWeapon, DamageAllShipPlane };
 int(*TwoShipFuncs[])(Fleet&, Fleet::Const_Iterator&, Fleet::Const_Iterator&) = { nullptr, TransferFuel, TransferAircraft };
 int(*FileFuncs[])(Fleet&) = { nullptr, LoadNavy, SaveNavy };
 
 int(*ShipConfigs[])(Fleet::Const_Iterator&) = { nullptr, D_Call, D_Captain, D_Crew, D_Speed, D_FuelReserve, D_FuelConsumption };
 int(*WeaponConfigs[])(Weapon*) = { nullptr, D_NameWeapon, D_NameAmmunition, D_RateFire, D_QuantityAmmunition, D_Damage };
+//int(*AircraftConfigs[])(Aircraft*) = { nullptr, D_Speed, D_FuelReserve, D_FuelConsumption };
 
 //------------------------------------------------------------
 
@@ -119,6 +126,7 @@ const int PickNum = sizeof(PickShip) / sizeof(PickShip[0]);
 const int ShipConfigNum = sizeof(ShipConfig) / sizeof(ShipConfig[0]);
 const int ShipConfigMenuNum = sizeof(ShipConfigMenu) / sizeof(ShipConfigMenu[0]);
 const int WeaponConfigMenuNum = sizeof(WeaponConfigMenu) / sizeof(WeaponConfigMenu[0]);
+const int AircraftConfigNum = sizeof(AircraftConfigMenu) / sizeof(AircraftConfigMenu[0]);
 
 //------------------------------------------------------------
 
@@ -415,14 +423,14 @@ int MaxRadiusFlight(Fleet& FleetTmp) {
 
 //------------------------------------------------------------
 
-int AllInfo(Fleet::Const_Iterator& it) {
-	std::cout << (*it).second;
+int AllInfo(Fleet::Const_Iterator it) {
+	std::cout << *((*it).second);
 	return 0;
 }
 
 //------------------------------------------------------------
 
-int ShipSetting(Fleet::Const_Iterator& it) {
+int ShipSetting(Fleet::Const_Iterator it) {
 	int index;
 	try {
 		while (index = Answer(ShipConfig, ShipConfigNum))
@@ -556,7 +564,7 @@ int D_FuelConsumption(Fleet::Const_Iterator& it) {
 
 //------------------------------------------------------------
 
-int WeaponSetting(Fleet::Const_Iterator& it) {
+int WeaponSetting(Fleet::Const_Iterator it) {
 	if ((*it).second->TypeShip() != 2) {
 		if ((*it).second->AmountWeapon() > 0) {
 			int index;
@@ -684,7 +692,7 @@ int D_Damage(Weapon* Arsenal) {
 
 //------------------------------------------------------------
 
-int MaxRange(Fleet::Const_Iterator& it) {
+int MaxRange(Fleet::Const_Iterator it) {
 	double tmp = (*it).second->maxRangeTtransition();
 	std::cout << " Max Range of transition of this Ship --> " << tmp << std::endl;
 	return 0;
@@ -692,7 +700,7 @@ int MaxRange(Fleet::Const_Iterator& it) {
 
 //------------------------------------------------------------
 
-int TimeFireShip(Fleet::Const_Iterator& it) {
+int TimeFireShip(Fleet::Const_Iterator it) {
 	if ((*it).second->TypeShip() != 2)
 		std::cout << " Time Fire all Weapons on Ship --> " << (*it).second->TimeFireAllWeapons();
 	else
@@ -702,7 +710,7 @@ int TimeFireShip(Fleet::Const_Iterator& it) {
 
 //------------------------------------------------------------
 
-int DamageAllShipWeapon(Fleet::Const_Iterator& it) {
+int DamageAllShipWeapon(Fleet::Const_Iterator it) {
 	if ((*it).second->TypeShip() != 2)
 		std::cout << " Damage of all Weapons on Ship --> " << (*it).second->DamageAllWeapons();
 	else
@@ -712,7 +720,7 @@ int DamageAllShipWeapon(Fleet::Const_Iterator& it) {
 
 //------------------------------------------------------------
 
-int DamageAllShipPlane(Fleet::Const_Iterator& it) {
+int DamageAllShipPlane(Fleet::Const_Iterator it) {
 	if ((*it).second->TypeShip() != 1)
 		std::cout << " Damage of all Aircrafts on Ship --> " << (*it).second->DamageAllPlanes();
 	else
@@ -836,9 +844,35 @@ int SaveNavy(Fleet& FleetTmp) {
 
 //------------------------------------------------------------
 
-int AircraftSetting(Fleet::Const_Iterator& it) {
+/*int AircraftSetting(Fleet::Const_Iterator& it) {
+	if ((*it).second->TypeShip() == 1)
+		std::cout << " This Ship can't have Aircrfats!" << std::endl;
+	else {
+		if ((*it).second->AmountAircraft() > 0) {
+			int index;
+			try {
+				int Number;
+				std::cout << "Enter Number of Aircraft --> ";
+				std::cin >> Number;
+				if (Number < 1 || Number >(*it).second->AmountAircraft())
+					std::cout << "Invalid Number of Aircraft!" << std::endl;
+				else {
+					Aircraft* Plane = (*it).second.
+					while (index = Answer(AircraftConfigMenu, AircraftConfigNum))
+						AircraftConfigs[index](Modify);
+				
+				}
+			}
+			catch (const std::exception& er) {
+				std::cout << er.what() << std::endl;
+			}
+
+		}
+	}
 	return 0;
-}
+}*/
+
+//------------------------------------------------------------
 
 int Find(Fleet& FleetTmp){
 	std::string name;

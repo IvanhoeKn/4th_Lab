@@ -8,12 +8,12 @@ struct _pair {
 	typedef info _second_type;
 	key first;
 	info second;
-	_pair() : first(NULL), second(NULL) {}
+	_pair() /*: first(nullptr), second(nullptr)*/ {}
 	_pair(const key& t_key, const info& t_info) : first(t_key), second(t_info) {}
 	_pair(const _pair<key, info>& t_pair) : first(t_pair.first), second(t_pair.second) {}
 	~_pair() {
-		first = NULL;
-		second = NULL;
+		/*first = nullptr;
+		second = nullptr;*/
 	}
 
 	_pair<key, info>& _make_pair(const key& t_key, const info& t_info) {
@@ -101,6 +101,10 @@ public:
 		Size = 0;
 	}
 
+	int size() const {
+		return Size;
+	}
+
 	friend class _map_iterator<key, info>;
 
 	typedef _map_iterator<key, info> _map_const_it;
@@ -142,7 +146,7 @@ public:
 		_map_const_it it = find(t_key);
 		if (it != end()) {
 			_pair<key, info>* t_Data;
-			t_Data = new _pair<key, info>[Size];
+			t_Data = new _pair<key, info>[Size - 1];
 			for (int i = 0; i < Size; i++) {
 				static int j = 0;
 				if ((*it).first != Data[i].first) {
@@ -161,10 +165,6 @@ public:
 		Size = 0;
 		delete[] Data;
 		Data = nullptr;
-	}
-
-	int size() {
-		return Size;
 	}
 
 	void qsort(_pair<key, info> t_Data[], int left, int right) {

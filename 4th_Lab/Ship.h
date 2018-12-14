@@ -180,6 +180,9 @@ namespace AircraftСarrierGroup
 
 		//Тип корабля
 		virtual int TypeShip() const = 0;
+
+		//Вывод количества самолетов
+		virtual int AmountAircraft() const = 0;
 	};
 }
 #endif

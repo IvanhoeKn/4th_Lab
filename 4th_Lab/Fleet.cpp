@@ -10,69 +10,65 @@ namespace AircraftСarrierGroup {
 
 	/////////////////////////////////////////
 	Fleet::Fleet(const Fleet& FleetTmp) {
-		std::map<const std::string, Ship*>::const_iterator ptr;
+		_map<std::string, Ship*>::_map_const_it ptr;
 		for (ptr = FleetTmp.ArrShip.begin(); ptr != FleetTmp.ArrShip.end(); ++ptr)
-			ArrShip.insert(std::make_pair(ptr->first, ptr->second->clone()));
+			ArrShip.insert(ptr.get()->first, ptr.get()->second);
 	}
 	/////////////////////////////////////////
 
 	Fleet::~Fleet() {
-		std::map<const std::string, Ship*>::iterator ptr;
+		_map<std::string, Ship*>::_map_const_it ptr;
 		for (ptr = ArrShip.begin(); ptr != ArrShip.end(); ++ptr) {
 			delete ptr->second;
-			ptr->second = nullptr;
+			ptr.get()->second = nullptr;
 		}
 	}
 
 	/////////////////////////////////////////
 	Fleet& Fleet::operator = (const Fleet& FleetTmp){
-		std::map<const std::string, Ship*>::iterator ptr;
+		_map<std::string, Ship*>::_map_const_it ptr;
 		if (this != &FleetTmp) {
 			//Освобождение памяти, занятой объектом слева
 			for (ptr = ArrShip.begin(); ptr != ArrShip.end(); ++ptr)
 				delete ptr->second;
 			ArrShip.clear();
 			//копирование кораблей из контейнера справа от присваивания в контейнер слева из присваивания
-			std::map<const std::string, Ship*>::const_iterator pptr;
+			_map<std::string, Ship*>::_map_const_it pptr;
 			for (pptr = ArrShip.begin(); pptr != ArrShip.end(); ++pptr)
-				ArrShip.insert(std::make_pair(pptr->first, pptr->second->clone()));
+				ArrShip.insert(pptr.get()->first, pptr.get()->second->clone());
 		}
 		return *this;
 	}
 	/////////////////////////////////////////
 
-	int Fleet::SizeFleet() const {
-		return ArrShip.size();
-	}
-
-	bool Fleet::insert(const std::string& CallTmp,const Ship* ShipTmp) {
+	bool Fleet::insert(std::string& CallTmp, Ship* ShipTmp) {
 		bool res = false;
-		std::map<const std::string, Ship*>::iterator ptr = ArrShip.find(CallTmp);
+		_map<std::string, Ship*>::_map_const_it ptr = ArrShip.find(CallTmp);
 		//Поиск неуспешен
 		if (ptr == ArrShip.end()) { 
-			std::pair<std::map<const std::string, Ship*>::iterator, bool> pptr = ArrShip.insert(std::make_pair(CallTmp, ShipTmp->clone()));////
-			if (!pptr.second)
+			bool pptr = ArrShip.insert(CallTmp, ShipTmp->clone());////
+			if (!pptr)
 				throw std::exception("can't insert new item into map");
 			res = true;
 		}
 		return res;
 	}
 
-	bool Fleet::remove(const std::string& CallTmp) {
+	bool Fleet::remove(std::string& CallTmp) {
 		bool res = false;
-		std::map<const std::string, Ship*>::iterator ptr = ArrShip.find(CallTmp); //arr.erase(s);
+		_map<std::string, Ship*>::_map_const_it ptr = ArrShip.find(CallTmp); //arr.erase(s);
 		//Поиск успешен
 		if (ptr != ArrShip.end()) {
 			delete ptr->second;
-			ptr->second = nullptr;
-			ArrShip.erase(ptr); //Удаление элемента из контейнера
+			ptr.get()->second = nullptr;
+			ArrShip.erase(ptr.get()->first); //Удаление элемента из контейнера
 			res = true;
 		}
 		return res;
 	}
 
 	Fleet::Const_Iterator Fleet::find(const std::string& CallTmp) const {
-		std::map<const std::string, Ship*>::const_iterator ptr = ArrShip.find(CallTmp);
+		_map<std::string, Ship*>::_map_const_it ptr = ArrShip.find(CallTmp);
 		return ConstFleetIt(ptr);
 	}
 
@@ -94,11 +90,11 @@ namespace AircraftСarrierGroup {
 		return cur == it.cur;
 	}
 
-	const std::pair<const std::string, Ship*>& ConstFleetIt::operator * () {
+	const _pair<std::string, Ship*>& ConstFleetIt::operator * () {
 		return *cur;
 	}
 
-	const std::pair<const std::string, Ship*>* ConstFleetIt::operator -> () {
+	const _pair<std::string, Ship*>* ConstFleetIt::operator -> () {
 		return &*cur;
 	}
 
@@ -123,6 +119,7 @@ namespace AircraftСarrierGroup {
 		for (int i = 0; i < Size; i++){
 			int StrLn, type;
 			char NameBuf[80] = "";
+			std::string nmm(NameBuf);
 			std::string name;
 			is.read((char*) &StrLn, sizeof(int));
 			is.read(NameBuf, StrLn);
@@ -130,15 +127,15 @@ namespace AircraftСarrierGroup {
 			switch (type) {
 			case 1:
 				is >> ShipTmpF;
-				FleetTmp.insert(NameBuf, &ShipTmpF);
+				FleetTmp.insert(nmm, &ShipTmpF);
 				break;
 			case 2:
 				is >> ShipTmpS;
-				FleetTmp.insert(NameBuf, &ShipTmpS);
+				FleetTmp.insert(nmm, &ShipTmpS);
 				break;
 			case 3:
 				is >> ShipTmpT;
-				FleetTmp.insert(NameBuf, &ShipTmpT);
+				FleetTmp.insert(nmm, &ShipTmpT);
 				break;
 			default:
 				throw std::exception(" Invalid type of Ship\n");

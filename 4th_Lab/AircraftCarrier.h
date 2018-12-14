@@ -72,6 +72,10 @@ namespace Aircraft—arrierGroup
 		virtual int TypeShip() const {
 			return 3;
 		}
+
+		int AmountAircraft() const {
+			return AmountP;
+		}
 	};
 }
 #endif
