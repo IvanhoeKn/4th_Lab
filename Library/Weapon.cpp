@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Weapon.h"
 
-namespace AircraftÑarrierGroup {
+namespace AircraftCarrierGroup {
 
 	//Êîíñòğóêòîğû
 	Weapon::Weapon(std::string Weapon, std::string Munition, int RateFireTmp, int QuantityAmmunitionTmp, int DamageTmp) {

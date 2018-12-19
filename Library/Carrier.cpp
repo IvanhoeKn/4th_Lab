@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Carrier.h"
 
-namespace AircraftÑarrierGroup {
+namespace AircraftCarrierGroup {
 	
 	//Êîíñòðóêòîðû
 	Carrier::Carrier(std::string CallTmp, const Captain& CommanderTmp, int CrewTmp, const MilitaryCharacteristics& MilitaryTmp, int AmountPTmp, Aircraft* PlaneTmp) : Ship(CallTmp, CommanderTmp, CrewTmp, MilitaryTmp) {
@@ -159,19 +159,81 @@ namespace AircraftÑarrierGroup {
 
 	//------------------------------------------------------------
 
-	int Carrier::DamageAllWeapons() const {
-		throw std::exception("No Weapons on Carrier\n");
+	Aircraft* Carrier::getAir(int Number) const {
+		if (AmountP == 0 || Number > AmountP || Number < 1)
+			return nullptr;
+		else {
+			Aircraft* ptr = nullptr;
+			ptr = *Plane[Number - 1];
+			return ptr;
+		}
 	}
 
 	//------------------------------------------------------------
 
-	double Carrier::TimeFireAllWeapons() const {
-		throw std::exception("No Weapons on Carrier\n");
+	Carrier& Carrier::AddAircraft(const Aircraft& PlaneTmp) {
+		Aircraft* ArrTmp;
+		ArrTmp = new Aircraft[AmountP + 1];
+		for (int i = 0; i < AmountP; i++)
+			ArrTmp[i] = Plane[i];
+		ArrTmp[AmountP] = PlaneTmp;
+		delete[] Plane;
+		AmountP++;
+		Plane = ArrTmp;
+		return *this;
 	}
 
 	//------------------------------------------------------------
 
-	Carrier& Carrier::WeaponModification(std::string NameWeaponTmp, const Weapon& WeaponTmp) {
-		throw std::exception("No Weapons on Carrier\n");
+	Carrier& Carrier::DeleteAircraft(Aircraft* DeletedAircraft) {
+		std::cout << " **Aircaft in \"" << Call << "\" **" << std::endl;
+		if (AmountP) {
+			int Number;
+			int Index = 0;
+			for (int i = 0; i < AmountP; i++)
+				std::cout << " ** ¹" << i + 1 << "th " << Plane[i];
+			std::cout << " Enter number of aircraft to remove --> ";
+			std::cin >> Number;
+			Aircraft* ArrTmp;
+			ArrTmp = new Aircraft[AmountP - 1];
+			for (int i = 0; i < AmountP; i++)
+				if (i + 1 != Number) {
+					ArrTmp[Index] = Plane[i];
+					Index++;
+				}
+			*DeletedAircraft = Plane[Number - 1];
+			delete[] Plane;
+			Plane = ArrTmp;
+			AmountP--;
+		}
+		return *this;
+	}
+
+	//------------------------------------------------------------
+
+	double Carrier::MaxAircraftFlyght() const {
+		double MaxFlyght = std::numeric_limits<double>::max();
+		if (AmountP) {
+			for (int i = 0; i < AmountP; i++)
+				if (MaxFlyght - double(Plane[i].GetFuelReserve()) / Plane[i].GetFuelConsumption() > eps)
+					MaxFlyght = double(Plane[i].GetFuelReserve()) / Plane[i].GetFuelConsumption();
+			return MaxFlyght;
+		}
+		else
+			return 0;
+	}
+
+	//------------------------------------------------------------
+
+	double Carrier::MaxRadiusFlyght() const {
+		double MaxRadius = 0;
+		if (AmountP) {
+			for (int i = 0; i < AmountP; i++)
+				if (double(Plane[i].GetFuelReserve()) / Plane[i].GetFuelConsumption() * Plane[i].GetSpeed() > MaxRadius)
+					MaxRadius = double(Plane[i].GetFuelReserve()) / Plane[i].GetFuelConsumption() * Plane[i].GetSpeed();
+			return MaxRadius;
+		}
+		else
+			return 0;
 	}
 }

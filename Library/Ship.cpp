@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Ship.h"
 
-namespace AircraftÑarrierGroup {
+namespace AircraftCarrierGroup {
 
 	//Êîíñòðóêòîðû ñòðóêòóðû Captain
 	Captain::Captain(std::string NameTmp, std::string RankTmp, int ExperienceTmp) {
@@ -18,6 +18,59 @@ namespace AircraftÑarrierGroup {
 			Rank = CommanderTmp.Rank;
 			Experience = CommanderTmp.Experience;
 		}
+
+	//------------------------------------------------------------
+
+	std::istream& operator >> (std::istream& is, Captain& Commander) {
+		std::cout << " ***Commander***" << std::endl;
+		std::cout << " Enter Name: ";
+		std::cin >> Commander.Name;
+		std::cout << " Enter Rank: ";
+		std::cin >> Commander.Rank;
+		std::cout << " Enter Experience --> ";
+		std::cin >> Commander.Experience;
+		return is;
+	}
+
+	//------------------------------------------------------------
+
+	std::ostream& operator << (std::ostream& os, const Captain& Commander) {
+		std::cout << " ***Commander***" << std::endl;
+		std::cout << " Name: " << Commander.Name << std::endl;
+		std::cout << " Rank: " << Commander.Rank << std::endl;
+		std::cout << " Experience --> " << Commander.Experience << std::endl;
+		return os;
+	}
+
+	//------------------------------------------------------------
+
+	std::ifstream& operator >> (std::ifstream& is, Captain& Commander) {
+		int StrLn;
+		char NameBuf[80] = "";
+		char RankBuf[80] = "";
+		is.read((char*)&StrLn, sizeof(int));
+		is.read(NameBuf, StrLn);
+		Commander.Name = NameBuf;
+		is.read((char*)&StrLn, sizeof(int));
+		is.read(RankBuf, StrLn);
+		Commander.Rank = RankBuf;
+		is.read((char*)&Commander.Experience, sizeof(int));
+		return is;
+	}
+
+	//------------------------------------------------------------
+
+	std::ofstream& operator << (std::ofstream& os, const Captain& Commander) {
+		int tmp;
+		tmp = Commander.Name.size();
+		os.write((char*)&tmp, sizeof(int));
+		os << Commander.Name;
+		tmp = Commander.Rank.size();
+		os.write((char*)&tmp, sizeof(int));
+		os << Commander.Rank;
+		os.write((char*)&Commander.Experience, sizeof(int));
+		return os;
+	}
 
 	//------------------------------------------------------------
 
@@ -55,15 +108,21 @@ namespace AircraftÑarrierGroup {
 		Crew = CrewTmp;
 	};
 
+	//------------------------------------------------------------
+
 	Ship::Ship(std::string CallTmp, std::string NameTmp, std::string RankTmp, int ExperienceTmp, int CrewTmp, const MilitaryCharacteristics& MilitaryTmp) : MilitaryCharacteristics(MilitaryTmp), Commander(NameTmp, RankTmp, ExperienceTmp){
 		Call = CallTmp;
 		Crew = CrewTmp;
 	}
 
+	//------------------------------------------------------------
+
 	Ship::Ship(std::string CallTmp, const Captain& CommanderTmp, int CrewTmp, int SpeedTmp, int FuelConsumptionTmp, int FuelReserveTmp) : MilitaryCharacteristics(SpeedTmp, FuelConsumptionTmp, FuelReserveTmp), Commander(CommanderTmp){
 		Call = CallTmp;
 		Crew = CrewTmp;
 	}
+
+	//------------------------------------------------------------
 
 	Ship::Ship(std::string CallTmp, std::string NameTmp, std::string RankTmp, int ExperienceTmp, int CrewTmp, int SpeedTmp, int FuelConsumptionTmp, int FuelReserveTmp) : MilitaryCharacteristics(SpeedTmp, FuelConsumptionTmp, FuelReserveTmp), Commander(NameTmp, RankTmp, ExperienceTmp){
 		Call = CallTmp;

@@ -1,92 +1,70 @@
+/**
+@file Ship.h
+@brief Заголовочный файл с описанием класса
+@detailed Данный файл содержит в себе определение класса CoverShip
+*/
 #ifndef _SHIP_H_
 #define _SHIP_H_
+
 #include <string>
 #include <iostream>
 #include "stdio.h"
 #include "Weapon.h"
 #include "MilitaryCharacteristics.h"
 
-
-namespace AircraftСarrierGroup
-{
+/**
+namespace AircraftCarrierGroup
+@brief Пространство имен AircraftCarrierGroup
+*/
+namespace AircraftCarrierGroup {
 	const double eps = 1e-9;
 
-	//------------------------------------------------------------
-	//------------------------------------------------------------
-
+/**
+@brief Структура для описания капитана
+@detailed Осуществляет хранение всех параметров командира судна или флота
+*/
 	struct Captain {
 		std::string Name;
 		std::string Rank;
 		int Experience;
-
-		//Констукторы
+/**
+@brief Конструктор по умолчанию
+*/
 		Captain() : Name("Captain default"), Rank("Ordinary"), Experience(0) {};
-
-		Captain(std::string, std::string, int);
-
-		//Копирующий конструктор
-		Captain(const Captain&);
-
-		//---------------------------------
-
-		//Деструктор
+/**
+@brief Инициализирующий конструктор
+@param NameTmp Имя капитана
+@param RankTmp Ранг капитана
+@param ExperienceTmp Стаж
+*/
+		Captain(std::string NameTmp, std::string RankTmp, int ExperienceTmp);
+/**
+@brief Копирующий конструктор
+@param CommanderTmp Информация о командире, подлежащая копированию
+*/
+		Captain(const Captain& CommanderTmp);
+/**
+@brief Деструктор
+*/
 		~Captain() {}
 
-		//---------------------------------
+		//Потоковый ввод/вывод
+		friend std::istream& operator >> (std::istream& is, Captain& Commander);
+		friend std::ostream& operator << (std::ostream& os, const Captain& Commander);
+
+		//Потоковый ввод/вывод из файла
+		friend std::ifstream& operator >> (std::ifstream& is, Captain& Commander);
+		friend std::ofstream& operator << (std::ofstream& os, const Captain& Commander);
 
 		//Перегруженные операторы
 		Captain& operator = (const Captain&);
 		Captain& operator = (Captain&&);
-
-		friend std::istream& operator >> (std::istream& is, Captain& Commander) {
-			std::cout << " ***Commander***" << std::endl;
-			std::cout << " Enter Name: ";
-			std::cin >> Commander.Name;
-			std::cout << " Enter Rank: ";
-			std::cin >> Commander.Rank;
-			std::cout << " Enter Experience --> ";
-			std::cin >> Commander.Experience;
-			return is;
-		}
-
-		friend std::ostream& operator << (std::ostream& os, const Captain& Commander) {
-			std::cout << " ***Commander***" << std::endl;
-			std::cout << " Name: " << Commander.Name << std::endl;
-			std::cout << " Rank: " << Commander.Rank << std::endl;
-			std::cout << " Experience --> " << Commander.Experience << std::endl;
-			return os;
-		}
-
-		friend std::ifstream& operator >> (std::ifstream& is, Captain& Commander) {
-			int StrLn;
-			char NameBuf[80] = "";
-			char RankBuf[80] = "";
-			is.read((char*) &StrLn, sizeof(int));
-			is.read(NameBuf, StrLn);
-			Commander.Name = NameBuf;
-			is.read((char*) &StrLn, sizeof(int));
-			is.read(RankBuf, StrLn);
-			Commander.Rank = RankBuf;
-			is.read((char*) &Commander.Experience, sizeof(int));
-			return is;
-		}
-
-		friend std::ofstream& operator << (std::ofstream& os, const Captain& Commander) {
-			int tmp;
-			tmp = Commander.Name.size();
-			os.write((char*) &tmp, sizeof(int));
-			os << Commander.Name;
-			tmp = Commander.Rank.size();
-			os.write((char*) &tmp, sizeof(int));
-			os << Commander.Rank;
-			os.write((char*) &Commander.Experience, sizeof(int));
-			return os;
-		}
 	};
 
-	//------------------------------------------------------------
-	//------------------------------------------------------------
-
+/**
+@brief Абстрактный класс для описания кораблей
+@detailed Осуществляет хранение общих параметров кораблей и содержит функции, обрабатывающие эти параметры
+*/
 	class Ship : public MilitaryCharacteristics {
 	protected:
 		Captain Commander;
@@ -99,94 +77,148 @@ namespace AircraftСarrierGroup
 		virtual std::ofstream& fprint(std::ofstream&) const = 0;
 		virtual std::ifstream& fread(std::ifstream&) = 0;
 	public:
-		//Конструкторы
+/**
+@brief Конструктор по умолчанию
+*/
 		Ship() : MilitaryCharacteristics(), Call("Ship default"), Commander(), Crew(0) {}
-
-		Ship(const std::string, const Captain&,  int, const MilitaryCharacteristics&);
-
-		Ship(std::string, std::string, std::string, int, int, const MilitaryCharacteristics&);
-
-		Ship(std::string, const Captain&, int, int, int, int);
-
-		Ship(std::string, std::string, std::string, int, int, int, int, int);
-
-		//Копирующий конструктор
-		Ship(const Ship&);
-
-		//---------------------------------
-
-		//Деструктор
+/**
+@brief Инициализирующий конструктор
+@param CallTmp Название корабля
+@param ComanderTmp Капитан судна
+@param CrewTmp Количество человек в команде
+@param MilitaryTmp Хранит общие характеристики техники
+*/
+		Ship(std::string CallTmp, const Captain& CommanderTmp, int CrewTmp, const MilitaryCharacteristics& MilitaryTmp);
+/**
+@brief Инициализирующий конструктор
+@param CallTmp Название корабля
+@param NameTmp Имя капитана
+@param RankTmp Ранг капитана
+@param ExperienceTmp Стаж командира судна
+@param CrewTmp Количество человек в команде
+@param MilitaryTmp Хранит общие характеристики техники
+*/
+		Ship(std::string CallTmp, std::string NameTmp, std::string RankTmp, int ExperienceTmp, int CrewTmp, const MilitaryCharacteristics& MilitaryTmp);
+/**
+@brief Инициализирующий конструктор
+@param CallTmp Название корабля
+@param CommanderTmp Информация о командире судна
+@param CrewTmp Количество человек в команде
+@param SpeedTmp Скорость корабля
+@param FuelReserveTmp Запас топлива судна
+@param FuelConsumptionTmp Расход топлива корабля
+*/
+		Ship(std::string CallTmp, const Captain& CommanderTmp, int CrewTmp, int SpeedTmp, int FuelConsumptionTmp, int FuelReserveTmp);
+/**
+@brief Инициализирующий конструктор
+@param CallTmp Название корабля
+@param NameTmp Имя капитана
+@param RankTmp Ранг капитана
+@param ExperienceTmp Стаж командира судна
+@param CrewTmp Количество человек в команде
+@param SpeedTmp Скорость корабля
+@param FuelReserveTmp Запас топлива судна
+@param FuelConsumptionTmp Расход топлива корабля
+*/
+		Ship(std::string CallTmp, std::string NameTmp, std::string RankTmp, int ExperienceTmp, int CrewTmp, int SpeedTmp, int FuelConsumptionTmp, int FuelReserveTmp);
+/**
+@brief Копирующий конструктор
+@param ShipTmp Описатель корабля
+*/
+		Ship(const Ship& ShipTmp);
+/**
+@brief Деструктор
+*/
 		virtual ~Ship() {}
-
-		//---------------------------------
-
-		//Другие методы класса
-		virtual Ship* clone() const = 0;
-
+/**
+@brief Устанавливает нового капитана для корабля
+@param[in] CommanderTmp Информация о новом командующим
+@return Возвращает измененные параметры техники
+*/
 		Ship& setNewCommander(const Captain& CommanderTmp) { Commander = CommanderTmp; return *this; }
-
+/**
+@brief Устанавливает нового названия для корабля
+@param[in] CallTmp Название корабля
+@return Возвращает измененные параметры техники
+*/
 		Ship& setNewCall(std::string CallTmp) { Call = CallTmp; return *this; }
-
+/**
+@brief Устанавливает количество членов экипажа
+@param[in] CrewTmp Количество человек в экипаже
+@return Возвращает измененные параметры техники
+*/
 		Ship& setNewCrew(int CrewTmp) { Crew = CrewTmp; return *this; }
-
+/**
+@brief Возвращает информацию о капитане судна
+*/
 		Captain getCommander() const { return Commander; }
-
+/**
+@brief Возвращает название корабля
+*/
 		std::string getCall() const { return Call; }
-
+/**
+@brief Возвращает количество членов экипажа судна
+*/
 		int getCrew() const { return Crew; }
-
-		//Максимальный переход
+/**
+@brief Производит рассчет максимальной дальности перехода при имеющемся количестве топлива
+*/
 		double maxRangeTtransition() const;
-
-		//Время ведения огня всеми орудиями
+/**
+@brief Производит рассчет времени ведения огня всеми орудиями судна
+*/
 		virtual double TimeFireAllWeapons() const = 0;
-
-		//Разрушения, наносимые всеми самолетами корабля за единицу времени
+/**
+@brief Подсчет всех разрушениий, наносимых всеми самолетами корабля за единицу времени
+*/
 		virtual int DamageAllPlanes() const = 0;
-
-		//Разрушения, наносимые всем вооружением корабля за едниницу времени
+/**
+@brief Подсчет всех разрушениий, наносимых всем вооружением корабля за едниницу времени
+*/
 		virtual int DamageAllWeapons() const = 0;
-
-		//Вывод полной информации о судне в поток
-		friend std::ostream& operator << (std::ostream& os, const Ship& ShipTmp) {
-			return ShipTmp.show(os);
-		}
-
-		//Ввод полной информации о судне из потока
-		friend std::istream& operator >> (std::istream& is, Ship& ShipTmp) {
-			return ShipTmp.get(is);
-		}
-
-		//Считывание полной информации о судне из файла
-		friend std::ofstream& operator << (std::ofstream& os, const Ship& ShipTmp) {
-			return ShipTmp.fprint(os);
-		}
-		
-		//Вывод полной информации о судне в файл
-		friend std::ifstream& operator >> (std::ifstream& is, Ship& ShipTmp) {
-			return ShipTmp.fread(is);
-		}
-
-		//Вывод информации о вооружении
+/**
+@brief Возвращет количество вооружения на корабле
+*/		
+		virtual int AmountWeapon() const = 0;
+/**
+@brief Возвращет указатель на область памяти, в которой хранится вся информация о выбранном оружии
+@param NameTmp Название оружия, по которому будет производиться поиск
+*/
+		virtual Weapon* getWeapon(std::string NameTmp) const = 0;
+/**
+@brief Функция модифицирует выбранное, из имеющихся на корабле, орудие
+@param NameWeaponTmp Названия орудия, которое надо модифицировать
+@param WeaponTmp Новое орудие
+*/
+		virtual Ship& WeaponModification(std::string NameWeaponTmp, const Weapon& WeaponTmp) = 0;
+/**
+@brief Возвращет тип корабля
+*/
+		virtual int TypeShip() const = 0;
+/**
+@brief Возвращет количество самолетов на судне
+*/
+		virtual int AmountAircraft() const = 0;
+/**
+@brief Возвращет название прикрываемого корабля
+*/
+		virtual std::string GetDisguised() const = 0;
+/**
+@brief Клонирует данные о корабле
+*/
+		virtual Ship* clone() const = 0;
+/**
+@brief Вывод всей информации об имеющемся вооружении на судне
+*/
 		virtual std::ostream& printInfoWeapon(std::ostream&) const = 0;
 
-		//Вывод количества вооружения
-		virtual int AmountWeapon() const = 0;
+		//Потоковый ввод/вывод
+		friend std::ostream& operator << (std::ostream& os, const Ship& ShipTmp) { return ShipTmp.show(os); }
+		friend std::istream& operator >> (std::istream& is, Ship& ShipTmp) { return ShipTmp.get(is); }
 
-		//Возвращение указателя на оружие
-		virtual Weapon* getWeapon(std::string) const = 0;
-
-		//Модификация вооружения корабля
-		virtual Ship& WeaponModification(std::string, const Weapon&) = 0;
-
-		//Тип корабля
-		virtual int TypeShip() const = 0;
-
-		//Вывод количества самолетов
-		virtual int AmountAircraft() const = 0;
-
-		//Вывод прикрываемого корабля
-		virtual std::string GetDisguised() const = 0;
+		//Потоковый ввод/вывод из файла
+		friend std::ofstream& operator << (std::ofstream& os, const Ship& ShipTmp) { return ShipTmp.fprint(os); }
+		friend std::ifstream& operator >> (std::ifstream& is, Ship& ShipTmp) { return ShipTmp.fread(is); }
 	};
 }
-#endif
+#endif //_SHIP_H_

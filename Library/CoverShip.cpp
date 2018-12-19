@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "CoverShip.h"
 
-namespace AircraftÑarrierGroup {
+namespace AircraftCarrierGroup {
 
 	//Êîíñòðóêòîðû
 	CoverShip::CoverShip(std::string CallTmp, const Captain& CommanderTmp, int CrewTmp, const MilitaryCharacteristics& MilitaryTmp, std::string DisguisedTmp, int AmountTmp, Weapon *ArrTmp) : Ship(CallTmp, CommanderTmp, CrewTmp, MilitaryTmp) {
@@ -190,17 +190,20 @@ namespace AircraftÑarrierGroup {
 
 	//------------------------------------------------------------
 
-	int CoverShip::DamageAllPlanes() const {
-		throw std::exception("No Planes on Cover Ship\n");
-	}
-
-	//------------------------------------------------------------
-
 	int CoverShip::DamageAllWeapons() const {
 		int Sum = 0;
 		for (int i = 0; i < AmountW; i++)
 			Sum += ArrW[i].GetDamage();
 		return Sum;
+	}
+
+	//------------------------------------------------------------
+
+	Weapon* CoverShip::getWeapon(std::string Name) const {
+		for (int i = 0; i < AmountW; i++)
+			if (ArrW[i].GetWeapon() == Name)
+				return *ArrW[i];
+		return nullptr;
 	}
 
 }

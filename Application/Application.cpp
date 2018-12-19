@@ -8,7 +8,7 @@
 
 //------------------------------------------------------------
 
-using namespace AircraftСarrierGroup;
+using namespace AircraftCarrierGroup;
 
 //------------------------------------------------------------
 

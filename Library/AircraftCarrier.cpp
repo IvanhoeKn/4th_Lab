@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "AircraftCarrier.h"
 
-namespace AircraftÑarrierGroup {
+namespace AircraftCarrierGroup {
 
 	//Êîíñòğóêòîğû
 	AircraftCarrier::AircraftCarrier(std::string CallTmp, const Captain& CommanderTmp, int CrewTmp, const MilitaryCharacteristics& MilitaryTmp, int AmountPTmp, Aircraft* PlaneTmp, int AmountWTmp, Weapon* ArrWTmp) : Carrier(CallTmp, CommanderTmp, CrewTmp, MilitaryTmp, AmountPTmp, PlaneTmp) {
@@ -204,6 +204,15 @@ namespace AircraftÑarrierGroup {
 		for (int i = 0; i < AmountW; i++)
 			Sum += ArrW[i].GetDamage();
 		return Sum;
+	}
+
+	//------------------------------------------------------------
+
+	Weapon* AircraftCarrier::getWeapon(std::string Name) const {
+		for (int i = 0; i < AmountW; i++)
+			if (ArrW[i].GetWeapon() == Name)
+				return *ArrW[i];
+		return nullptr;
 	}
 	
 }

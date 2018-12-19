@@ -1,12 +1,24 @@
+/**
+@file Carrier.h
+@brief Заголовочный файл с описанием класса
+@detailed Данный файл содержит в себе определение класса Carrier
+*/
 #ifndef _CARRIER_H_
 #define _CARRIER_H_
+
 #include <iostream>
 #include "Ship.h"
 #include "Aircraft.h"
 
-namespace AircraftСarrierGroup
-{
-
+/**
+namespace AircraftCarrierGroup
+@brief Пространство имен AircraftCarrierGroup
+*/
+namespace AircraftCarrierGroup {
+/**
+@brief Класс для описания авианосца
+@detailed Осуществляет хранение всех параметров авиносца и содержит функции, обрабатывающие эти параметры
+*/
 	class Carrier : public Ship {
 	protected:
 		int AmountP;
@@ -18,142 +30,125 @@ namespace AircraftСarrierGroup
 		virtual std::ofstream& fprint(std::ofstream&) const;
 		virtual std::ifstream& fread(std::ifstream&);
 	public:
-		//Конструкторы
+/**
+@brief Конструктор по умолчанию
+*/
 		Carrier() : Ship(), AmountP(0), Plane(nullptr) {}
-
-		Carrier(std::string, const Captain&, int, const MilitaryCharacteristics&, int, Aircraft* = nullptr);
-
-		//Копирующий конструктор
-		Carrier(const Carrier&);
-
-		//---------------------------------
-
-		//Деструктор
+/**
+@brief Инициализирующий конструктор
+@param CallTmp Название корабля
+@param ComanderTmp Капитан судна
+@param CrewTmp Количество человек в команде
+@param MilitaryTmp Хранит общие характеристики техники
+@param AmountPTmp Количество самолетов на палубе корабля
+@param PlaneTmp Содержит описатели каждого из самолетов
+*/
+		Carrier(std::string CallTmp, const Captain& CommanderTmp, int CrewTmp, const MilitaryCharacteristics& MilitaryTmp, int AmountPTmp = 0, Aircraft* PlaneTmp = nullptr);
+/**
+@brief Копирующий конструктор
+@param CarrierTmp Описатель авианосца
+*/
+		Carrier(const Carrier& CarrierTmp);
+/**
+@brief Деструктор
+*/
 		virtual ~Carrier() {
 			delete[] Plane;
 		}
+/**
+@brief Выводит всю информацию обо всех орудиях на судне
+*/
+		std::ostream& printInfoWeapon(std::ostream& os) const;
+/**
+@brief Производит расчет разрушений, которые могут нанести все самолеты судна условной цели за единицу времени
+*/
+		int DamageAllPlanes() const;
+/**
+@brief Производит расчет разрушений, которые могут нанести все орудия судна условной цели за единицу времени
+@throw InvalidOperation При попытке рассчета урона, наносимого всеми орудиями судна, поскольку этот тип кораблей 
+не может иметь вооружения на борту
+*/
+		virtual int DamageAllWeapons() const { throw std::exception("No Weapons on Carrier\n"); }
+/**
+@brief Производит рассчет времени ведения огня всеми орудиями судна с полной скорострельностью
+@throw InvalidOperation При попытке рассчета врмени ведения всеми орудиями судна, поскольку этот тип кораблей
+не может иметь вооружения на борту
+*/
+		virtual double TimeFireAllWeapons() const { throw std::exception("No Weapons on Carrier\n"); }
+/**
+@brief Функция модифицирует выбранное, из имеющихся на корабле, орудие
+@param NameWeaponTmp Названия орудия, которое надо модифицировать
+@param WeaponTmp Новое орудие
+@throw InvalidOperation При попытке модификации орудия судна, поскольку этот тип кораблей
+не может иметь вооружения на борту
+*/
+		virtual Carrier& WeaponModification(std::string NameWeaponTmp, const Weapon& WeaponTmp) { throw std::exception("No Weapons on Carrier\n"); }
+/**
+@brief Клонирует данный корабль
+@return Возвращает указатель на область памяти, в котором хранится копия этого корабля
+*/
+		virtual Carrier* clone() const { return new Carrier(*this); }
+/**
+@brief Функция получает описатель оружия по его названию
+@param Name Название оружия
+@return Возвращает указатель на область памяти, в котором хранится описатель найденного оружия
+@throw InvalidOperation При попытке получить описатель орудия корабля по его названию, поскольку этот тип кораблей 
+не может иметь вооружения на борту
+*/
+		virtual Weapon* getWeapon(std::string Name) const { throw std::exception("No Weapons on Carrier\n"); }
+/**
+@brief Возвращает количество вооружения на судне
+@throw InvalidOperation При попытке получить количество орудий на корабле, поскольку этот тип кораблей
+не может иметь вооружения на борту
+*/
+		virtual int AmountWeapon() const { throw std::exception("No Weapons on Carrier\n"); }
+/**
+@brief Тип данного корабля
+*/
+		virtual int TypeShip() const { return 2; }
+/**
+@brief Возвращет указатель на описатель самолета по его номеру
+*/
+		Aircraft* getAir(int Number) const;
+/**
+@brief Возвращет количество самолетов на палубе
+*/
+		int AmountAircraft() const { return AmountP; }
+/**
+@brief Производит добавление самолета на данный корабль
+@param PlaneTmp Описатель самолета
+*/
+		Carrier& AddAircraft(const Aircraft& PlaneTmp);
+/**
+@brief Производит удаление самолета с корабль
+@detailed Данная функция производит поиск поиск самолета по его номеру, в случае успеха копирует в буферную переменную
+(это необходимо для функции переноса самолета с одного корабля на другой), а затем производит его удаление с этого корабля
+@param[out] DeletedAircraft Копия удаленного самолета
+*/
+		Carrier& DeleteAircraft(Aircraft* DeletedAircraft = nullptr);
+/**
+@brief Производит рассчет времени одновременного полета всех самолетов корабля
+*/
+		double MaxAircraftFlyght() const;
+/**
+@brief Производит рассчет радиуса действия всех самолетов корабля
+*/
+		double MaxRadiusFlyght() const;
+/**
+@brief Функция возвращет названия прикрываемого корабля
+@throw InvalidShipType При попытке получить названия прикрываемого корабля, поскольку этот тип кораблей не может иметь прикрываемого корабля
+*/
+		std::string GetDisguised() const { throw std::exception("This type of ship can't have Disguised ships\n"); }
 
-		//---------------------------------
-
-		//Другие методы класса
+		//Потоковый ввод/вывод
 		friend std::ostream& operator << (std::ostream&, const Carrier&);
-
 		friend std::istream& operator >> (std::istream&, Carrier&);
 
-		friend std::ofstream& operator << (std::ofstream& os, const Carrier& ShipTmp) {
-			return ShipTmp.fprint(os);
-		}
-
-		friend std::ifstream& operator >> (std::ifstream& is, Carrier& ShipTmp) {
-			return ShipTmp.fread(is);
-		}
-
-		std::ostream& printInfoWeapon(std::ostream&) const;
-
-		int DamageAllPlanes() const;
-
-		int DamageAllWeapons() const;
-
-		double TimeFireAllWeapons() const;
-
-		Carrier& WeaponModification(std::string, const Weapon&);
-
-		virtual Carrier* clone() const {
-			return new Carrier(*this);
-		}
-
-		Weapon* getWeapon(std::string Name) const {
-			throw std::exception("No Weapons on Carrier\n");
-		}
-
-		int AmountWeapon() const {
-			throw std::exception("No Weapons on Carrier\n");
-		}
-
-		virtual int TypeShip() const {
-			return 2;
-		}
-
-		//Возвращение указателя на самолет
-		Aircraft* getAir(int Number) const {
-			if (AmountP == 0 || Number > AmountP || Number < 1)
-				return nullptr;
-			else {
-				Aircraft* ptr = nullptr;
-				ptr = *Plane[Number - 1];
-				return ptr;
-			}
-		}
-
-		int AmountAircraft() const {
-			return AmountP;
-		}
-
-		Carrier& AddAircraft(const Aircraft& PlaneTmp) {
-			Aircraft* ArrTmp;
-			ArrTmp = new Aircraft[AmountP + 1];
-			for (int i = 0; i < AmountP; i++)
-				ArrTmp[i] = Plane[i];
-			ArrTmp[AmountP] = PlaneTmp;
-			delete[] Plane;
-			AmountP++;
-			Plane = ArrTmp;
-			return *this;
-		}
-
-		Carrier& DeleteAircraft(Aircraft* DeletedAircraft = nullptr) {
-			std::cout << " **Aircaft in \"" << Call << "\" **" << std::endl;
-			if (AmountP) {
-				int Number;
-				int Index = 0;
-				for (int i = 0; i < AmountP; i++)
-					std::cout << " ** №" << i + 1 << "th " << Plane[i];
-				std::cout << " Enter number of aircraft to remove --> ";
-				std::cin >> Number;
-				Aircraft* ArrTmp;
-				ArrTmp = new Aircraft[AmountP - 1];
-				for (int i = 0; i < AmountP; i++)
-					if (i + 1 != Number) {
-						ArrTmp[Index] = Plane[i];
-						Index++;
-					}
-				*DeletedAircraft = Plane[Number - 1];
-				delete[] Plane;
-				Plane = ArrTmp;
-				AmountP--;
-			}
-			return *this;
-		}
-
-		double MaxAircraftFlyght() const {
-			double MaxFlyght = std::numeric_limits<double>::max();
-			if (AmountP) {
-				for (int i = 0; i < AmountP; i++)
-					if (MaxFlyght - double(Plane[i].GetFuelReserve()) / Plane[i].GetFuelConsumption() > eps)
-						MaxFlyght = double(Plane[i].GetFuelReserve()) / Plane[i].GetFuelConsumption();
-				return MaxFlyght;
-			}
-			else
-				return 0;
-		}
-
-		double MaxRadiusFlyght() const{
-			double MaxRadius = 0;
-			if (AmountP) {
-				for (int i = 0; i < AmountP; i++)
-					if (double(Plane[i].GetFuelReserve()) / Plane[i].GetFuelConsumption() * Plane[i].GetSpeed() > MaxRadius)
-						MaxRadius = double(Plane[i].GetFuelReserve()) / Plane[i].GetFuelConsumption() * Plane[i].GetSpeed();
-				return MaxRadius;
-			}
-			else
-				return 0;
-		}
-
-		std::string GetDisguised() const {
-			throw std::exception("This type of ship can't have Disguised ships\n");
-		}
+		//Потоковый ввод/вывод из файла
+		friend std::ofstream& operator << (std::ofstream& os, const Carrier& ShipTmp) { return ShipTmp.fprint(os); }
+		friend std::ifstream& operator >> (std::ifstream& is, Carrier& ShipTmp) { return ShipTmp.fread(is); }
 	};
 
 }
-#endif
+#endif //_CARRIER_H_
 

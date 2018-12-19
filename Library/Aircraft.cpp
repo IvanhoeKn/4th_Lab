@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Aircraft.h"
 
-namespace AircraftÑarrierGroup {
+namespace AircraftCarrierGroup {
 
 	//Êîíñòðóêòîðû
 	Aircraft::Aircraft(int SpeedTmp, int FuelReserveTmp, int FuelConsumptionTmp, int AmountTmp, Weapon* ArrTmp) : MilitaryCharacteristics(SpeedTmp, FuelConsumptionTmp, FuelReserveTmp) {
@@ -17,6 +17,8 @@ namespace AircraftÑarrierGroup {
 				Arr[i] = ArrTmp[i];
 		}
 	}
+
+	//------------------------------------------------------------
 
 	Aircraft::Aircraft(const MilitaryCharacteristics& Military, int AmountTmp = 0, Weapon* ArrTmp = nullptr) : MilitaryCharacteristics(Military) {
 		if (Amount > QUOTA) {

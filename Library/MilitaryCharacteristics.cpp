@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "MilitaryCharacteristics.h"
 
-namespace AircraftÑarrierGroup {
+namespace AircraftCarrierGroup {
 
 	//Êîíñòğóêòîğû
 	MilitaryCharacteristics::MilitaryCharacteristics(int SpeedTmp, int FuelConsumptionTmp, int FuelReserveTmp = 0) {
