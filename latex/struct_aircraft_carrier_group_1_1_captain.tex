@@ -1,0 +1,103 @@
+\hypertarget{struct_aircraft_carrier_group_1_1_captain}{}\section{Aircraft\+Carrier\+Group\+:\+:Captain Struct Reference}
+\label{struct_aircraft_carrier_group_1_1_captain}\index{Aircraft\+Carrier\+Group\+::\+Captain@{Aircraft\+Carrier\+Group\+::\+Captain}}
+
+
+Структура для описания капитана  Осуществляет хранение всех параметров командира судна или флота  
+
+
+
+
+{\ttfamily \#include $<$Ship.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_a6be7a710b2a305ce8670e834bf138102}\label{struct_aircraft_carrier_group_1_1_captain_a6be7a710b2a305ce8670e834bf138102}} 
+\mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain_a6be7a710b2a305ce8670e834bf138102}{Captain}} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain_aa9c0ef2175bb1bc073f96ae0cf8094a1}{Captain}} (std\+::string Name\+Tmp, std\+::string Rank\+Tmp, int Experience\+Tmp)
+\begin{DoxyCompactList}\small\item\em Инициализирующий конструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain_a52f1e94e696b2ac771c74f6c684f6a22}{Captain}} (const \mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \&Commander\+Tmp)
+\begin{DoxyCompactList}\small\item\em Копирующий конструктор \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_a5729193b600c718a41ac57180fd8d61f}\label{struct_aircraft_carrier_group_1_1_captain_a5729193b600c718a41ac57180fd8d61f}} 
+\mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain_a5729193b600c718a41ac57180fd8d61f}{$\sim$\+Captain}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_af9a3be6c6d93cdbbcd8297f324ecfd00}\label{struct_aircraft_carrier_group_1_1_captain_af9a3be6c6d93cdbbcd8297f324ecfd00}} 
+\mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \& {\bfseries operator=} (const \mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \&)
+\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_aad6dbdeaadb51d01d4cf28a20c345ada}\label{struct_aircraft_carrier_group_1_1_captain_aad6dbdeaadb51d01d4cf28a20c345ada}} 
+\mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \& {\bfseries operator=} (\mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \&\&)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_a978fb4171ae9db5a98cfe21dd8e03425}\label{struct_aircraft_carrier_group_1_1_captain_a978fb4171ae9db5a98cfe21dd8e03425}} 
+std\+::string {\bfseries Name}
+\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_af09effcfd568475fde2fcf2e3c55cb1f}\label{struct_aircraft_carrier_group_1_1_captain_af09effcfd568475fde2fcf2e3c55cb1f}} 
+std\+::string {\bfseries Rank}
+\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_a10365f6ea96d64ebd34649f1c9656902}\label{struct_aircraft_carrier_group_1_1_captain_a10365f6ea96d64ebd34649f1c9656902}} 
+int {\bfseries Experience}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_a276745bd693dc7b587811f496c7f100b}\label{struct_aircraft_carrier_group_1_1_captain_a276745bd693dc7b587811f496c7f100b}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&is, \mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \&Commander)
+\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_a3d5328753431802e2ddd6be9468138a6}\label{struct_aircraft_carrier_group_1_1_captain_a3d5328753431802e2ddd6be9468138a6}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \&Commander)
+\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_af4bdd39ebe7d66247cbf7026a3c215ba}\label{struct_aircraft_carrier_group_1_1_captain_af4bdd39ebe7d66247cbf7026a3c215ba}} 
+std\+::ifstream \& {\bfseries operator$>$$>$} (std\+::ifstream \&is, \mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \&Commander)
+\item 
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_a8e6f82a6a1f396fbd9c1220719c8d568}\label{struct_aircraft_carrier_group_1_1_captain_a8e6f82a6a1f396fbd9c1220719c8d568}} 
+std\+::ofstream \& {\bfseries operator$<$$<$} (std\+::ofstream \&os, const \mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \&Commander)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Структура для описания капитана  Осуществляет хранение всех параметров командира судна или флота 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_aa9c0ef2175bb1bc073f96ae0cf8094a1}\label{struct_aircraft_carrier_group_1_1_captain_aa9c0ef2175bb1bc073f96ae0cf8094a1}} 
+\index{Aircraft\+Carrier\+Group\+::\+Captain@{Aircraft\+Carrier\+Group\+::\+Captain}!Captain@{Captain}}
+\index{Captain@{Captain}!Aircraft\+Carrier\+Group\+::\+Captain@{Aircraft\+Carrier\+Group\+::\+Captain}}
+\subsubsection{\texorpdfstring{Captain()}{Captain()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Aircraft\+Carrier\+Group\+::\+Captain\+::\+Captain (\begin{DoxyParamCaption}\item[{std\+::string}]{Name\+Tmp,  }\item[{std\+::string}]{Rank\+Tmp,  }\item[{int}]{Experience\+Tmp }\end{DoxyParamCaption})}
+
+
+
+Инициализирующий конструктор 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Name\+Tmp} & Имя капитана \\
+\hline
+{\em Rank\+Tmp} & Ранг капитана \\
+\hline
+{\em Experience\+Tmp} & Стаж \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_aircraft_carrier_group_1_1_captain_a52f1e94e696b2ac771c74f6c684f6a22}\label{struct_aircraft_carrier_group_1_1_captain_a52f1e94e696b2ac771c74f6c684f6a22}} 
+\index{Aircraft\+Carrier\+Group\+::\+Captain@{Aircraft\+Carrier\+Group\+::\+Captain}!Captain@{Captain}}
+\index{Captain@{Captain}!Aircraft\+Carrier\+Group\+::\+Captain@{Aircraft\+Carrier\+Group\+::\+Captain}}
+\subsubsection{\texorpdfstring{Captain()}{Captain()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Aircraft\+Carrier\+Group\+::\+Captain\+::\+Captain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \&}]{Commander\+Tmp }\end{DoxyParamCaption})}
+
+
+
+Копирующий конструктор 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Commander\+Tmp} & Информация о командире, подлежащая копированию \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Sema/\+Desktop/\+Code\+Forces/\+Labs/4th\+\_\+\+Lab + library connection/\+Library/\mbox{\hyperlink{_ship_8h}{Ship.\+h}}\item 
+C\+:/\+Users/\+Sema/\+Desktop/\+Code\+Forces/\+Labs/4th\+\_\+\+Lab + library connection/\+Library/Ship.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="AircraftCarrierGroup::Fleet::TransferAircraft" name="AircraftCarrierGroup::Fleet::TransferAircraft">
+<area shape="rect" id="node2" href="$class_aircraft_carrier_group_1_1_carrier.html#a23f5d495e4bb570a8abb7ee08cce2d12" title="Производит удаление самолета с корабль &#160;Данная функция производит поиск поиск самолета по его номеру..." alt="" coords="208,5,363,47"/>
+<area shape="rect" id="node3" href="$class_aircraft_carrier_group_1_1_carrier.html#ac85afb17582997d9e5956ff89d22a1e6" title="Производит добавление самолета на данный корабль " alt="" coords="215,71,355,112"/>
+</map>

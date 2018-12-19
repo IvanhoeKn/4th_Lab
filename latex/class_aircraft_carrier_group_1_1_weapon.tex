@@ -1,0 +1,250 @@
+\hypertarget{class_aircraft_carrier_group_1_1_weapon}{}\section{Aircraft\+Carrier\+Group\+:\+:Weapon Class Reference}
+\label{class_aircraft_carrier_group_1_1_weapon}\index{Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}}
+
+
+Класс для описания вооружения  Осуществляет хранение всех параметров авианесущего крейсера и содержит функции, обрабатывающие эти параметры  
+
+
+
+
+{\ttfamily \#include $<$Weapon.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a65132027a67856e1adbdb603d5d40d8e}\label{class_aircraft_carrier_group_1_1_weapon_a65132027a67856e1adbdb603d5d40d8e}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_a65132027a67856e1adbdb603d5d40d8e}{Weapon}} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_a873b32cd3111fc6106d7f13eb4c17e83}{Weapon}} (std\+::string \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}}, std\+::string Munition, int Rate\+Fire\+Tmp, int Quantity\+Ammunition\+Tmp, int Damage\+Tmp)
+\begin{DoxyCompactList}\small\item\em Инициализирующий конструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_afd4999fbde839ecc830fc0786ad84b68}{Weapon}} (const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \&Arsenal)
+\begin{DoxyCompactList}\small\item\em Копирующий конструктор \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_ab02b48426ec21031c18a57d930265411}\label{class_aircraft_carrier_group_1_1_weapon_ab02b48426ec21031c18a57d930265411}} 
+virtual \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_ab02b48426ec21031c18a57d930265411}{$\sim$\+Weapon}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \& \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_a3a73357d6f4f8676192cc10f255e82d2}{Set\+Weapon}} (std\+::string \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}})
+\begin{DoxyCompactList}\small\item\em Устанавливает названия оружия \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \& \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_af026b090b1f5230fdaf68ffcc481eba3}{Set\+Munition}} (std\+::string Munition)
+\begin{DoxyCompactList}\small\item\em Устанавливает название боеприпаса \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \& \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_a8f83ea62a85411992eb53634fc43b011}{Set\+Rate\+Fire}} (int Rate\+Fire\+Tmp)
+\begin{DoxyCompactList}\small\item\em Устанавливает скорострельность орудия \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \& \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_a9fd2fbb263336abbbc9d12c51a9de3c1}{Set\+Quantity\+Ammunition}} (int Quantity\+Ammunition\+Tmp)
+\begin{DoxyCompactList}\small\item\em Устанавливает новое количество боеприпасов \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \& \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_a5d8ce784fb56b4f84f028d92dcae7a25}{Set\+Damage}} (int Damage\+Tmp)
+\begin{DoxyCompactList}\small\item\em Устанавливает урон орудия, наносимого по цели за попадание \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a25b4126359e6c564624708a19aa6ed60}\label{class_aircraft_carrier_group_1_1_weapon_a25b4126359e6c564624708a19aa6ed60}} 
+std\+::string \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_a25b4126359e6c564624708a19aa6ed60}{Get\+Weapon}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает название оружия \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_af7bc46055c221b56bedd89f0ae72b0f9}\label{class_aircraft_carrier_group_1_1_weapon_af7bc46055c221b56bedd89f0ae72b0f9}} 
+std\+::string \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_af7bc46055c221b56bedd89f0ae72b0f9}{Get\+Munition}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает название боеприпаса \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a48f47f37247032c6f8b6847f0efb6bf9}\label{class_aircraft_carrier_group_1_1_weapon_a48f47f37247032c6f8b6847f0efb6bf9}} 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_a48f47f37247032c6f8b6847f0efb6bf9}{Get\+Rate\+Fire}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает скорострельность орудия \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_aa86f34c5330200d6cba0aa46a8c55760}\label{class_aircraft_carrier_group_1_1_weapon_aa86f34c5330200d6cba0aa46a8c55760}} 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_aa86f34c5330200d6cba0aa46a8c55760}{Get\+Quantity\+Ammunition}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает количество боеприпасов для данного орудия \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_adee6de4abae36cc738acc3cb276f20b4}\label{class_aircraft_carrier_group_1_1_weapon_adee6de4abae36cc738acc3cb276f20b4}} 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon_adee6de4abae36cc738acc3cb276f20b4}{Get\+Damage}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает урон, наносимый цели при одном удачном попадании \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a1b9ac69fb978eaea5fc5e044e1e20e6c}\label{class_aircraft_carrier_group_1_1_weapon_a1b9ac69fb978eaea5fc5e044e1e20e6c}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \&Arsenal)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_aea2e99771201dcdabb5958cc0cd33bb4}\label{class_aircraft_carrier_group_1_1_weapon_aea2e99771201dcdabb5958cc0cd33bb4}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \& {\bfseries operator=} (\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \&\&Arsenal)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a094ccf9f53adc5a43f261f32de24d271}\label{class_aircraft_carrier_group_1_1_weapon_a094ccf9f53adc5a43f261f32de24d271}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} $\ast$ {\bfseries operator$\ast$} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_ac2e8c140c04c32f38b27cf0e1de22bf8}\label{class_aircraft_carrier_group_1_1_weapon_ac2e8c140c04c32f38b27cf0e1de22bf8}} 
+std\+::string {\bfseries Name\+Weapon}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a4836b532366f88512bd8afe08b97d305}\label{class_aircraft_carrier_group_1_1_weapon_a4836b532366f88512bd8afe08b97d305}} 
+std\+::string {\bfseries Name\+Ammunition}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a5b829bc8a6019ed40e65f7aa0dd02e19}\label{class_aircraft_carrier_group_1_1_weapon_a5b829bc8a6019ed40e65f7aa0dd02e19}} 
+int {\bfseries Rate\+Fire}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a39752f5f5902f938c4004fd6a823bdf5}\label{class_aircraft_carrier_group_1_1_weapon_a39752f5f5902f938c4004fd6a823bdf5}} 
+int {\bfseries Quantity\+Ammunition}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_ab707a34a6f866ad85e912941ac106eb6}\label{class_aircraft_carrier_group_1_1_weapon_ab707a34a6f866ad85e912941ac106eb6}} 
+int {\bfseries Damage}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a6e3f0c651bfbec897325114a9e590373}\label{class_aircraft_carrier_group_1_1_weapon_a6e3f0c651bfbec897325114a9e590373}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \&)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a9a96630ba95fdb0cc6f7b16766081d5c}\label{class_aircraft_carrier_group_1_1_weapon_a9a96630ba95fdb0cc6f7b16766081d5c}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&, \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \&)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_adaef3dde16ced500764bc14a0ddca762}\label{class_aircraft_carrier_group_1_1_weapon_adaef3dde16ced500764bc14a0ddca762}} 
+std\+::ofstream \& {\bfseries operator$<$$<$} (std\+::ofstream \&, const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \&)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_ad3aa1264af343d372f10374b56344fd6}\label{class_aircraft_carrier_group_1_1_weapon_ad3aa1264af343d372f10374b56344fd6}} 
+std\+::ifstream \& {\bfseries operator$>$$>$} (std\+::ifstream \&, \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Класс для описания вооружения  Осуществляет хранение всех параметров авианесущего крейсера и содержит функции, обрабатывающие эти параметры 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a873b32cd3111fc6106d7f13eb4c17e83}\label{class_aircraft_carrier_group_1_1_weapon_a873b32cd3111fc6106d7f13eb4c17e83}} 
+\index{Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}!Weapon@{Weapon}}
+\index{Weapon@{Weapon}!Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Aircraft\+Carrier\+Group\+::\+Weapon\+::\+Weapon (\begin{DoxyParamCaption}\item[{std\+::string}]{Weapon,  }\item[{std\+::string}]{Munition,  }\item[{int}]{Rate\+Fire\+Tmp,  }\item[{int}]{Quantity\+Ammunition\+Tmp,  }\item[{int}]{Damage\+Tmp }\end{DoxyParamCaption})}
+
+
+
+Инициализирующий конструктор 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}}} & Название оружия \\
+\hline
+{\em Munition} & Название боеприпаса \\
+\hline
+{\em Rate\+Fire\+Tmp} & Скорострельность орудия \\
+\hline
+{\em Quantity\+Ammunition\+Tmp} & Количество боеприпасов \\
+\hline
+{\em Damage\+Tmp} & Разрушения, наносимые цели при одном удачном попадании \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{class_aircraft_carrier_group_1_1_weapon_a873b32cd3111fc6106d7f13eb4c17e83_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_afd4999fbde839ecc830fc0786ad84b68}\label{class_aircraft_carrier_group_1_1_weapon_afd4999fbde839ecc830fc0786ad84b68}} 
+\index{Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}!Weapon@{Weapon}}
+\index{Weapon@{Weapon}!Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Aircraft\+Carrier\+Group\+::\+Weapon\+::\+Weapon (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \&}]{Arsenal }\end{DoxyParamCaption})}
+
+
+
+Копирующий конструктор 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Arsenal} & Описатель копируемого оружия \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a5d8ce784fb56b4f84f028d92dcae7a25}\label{class_aircraft_carrier_group_1_1_weapon_a5d8ce784fb56b4f84f028d92dcae7a25}} 
+\index{Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}!Set\+Damage@{Set\+Damage}}
+\index{Set\+Damage@{Set\+Damage}!Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Set\+Damage()}{SetDamage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}}\& Aircraft\+Carrier\+Group\+::\+Weapon\+::\+Set\+Damage (\begin{DoxyParamCaption}\item[{int}]{Damage\+Tmp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Устанавливает урон орудия, наносимого по цели за попадание 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Damage\+Tmp} & Обновленный урон \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает измененные параметры оружия 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_af026b090b1f5230fdaf68ffcc481eba3}\label{class_aircraft_carrier_group_1_1_weapon_af026b090b1f5230fdaf68ffcc481eba3}} 
+\index{Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}!Set\+Munition@{Set\+Munition}}
+\index{Set\+Munition@{Set\+Munition}!Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Set\+Munition()}{SetMunition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}}\& Aircraft\+Carrier\+Group\+::\+Weapon\+::\+Set\+Munition (\begin{DoxyParamCaption}\item[{std\+::string}]{Munition }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Устанавливает название боеприпаса 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Munition} & Новое название боеприпаса, применимого для этого орудия \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает измененные параметры оружия 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a9fd2fbb263336abbbc9d12c51a9de3c1}\label{class_aircraft_carrier_group_1_1_weapon_a9fd2fbb263336abbbc9d12c51a9de3c1}} 
+\index{Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}!Set\+Quantity\+Ammunition@{Set\+Quantity\+Ammunition}}
+\index{Set\+Quantity\+Ammunition@{Set\+Quantity\+Ammunition}!Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Set\+Quantity\+Ammunition()}{SetQuantityAmmunition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}}\& Aircraft\+Carrier\+Group\+::\+Weapon\+::\+Set\+Quantity\+Ammunition (\begin{DoxyParamCaption}\item[{int}]{Quantity\+Ammunition\+Tmp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Устанавливает новое количество боеприпасов 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Quantity\+Ammunition\+Tmp} & Новое количество боеприпасов \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает измененные параметры оружия 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a8f83ea62a85411992eb53634fc43b011}\label{class_aircraft_carrier_group_1_1_weapon_a8f83ea62a85411992eb53634fc43b011}} 
+\index{Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}!Set\+Rate\+Fire@{Set\+Rate\+Fire}}
+\index{Set\+Rate\+Fire@{Set\+Rate\+Fire}!Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Set\+Rate\+Fire()}{SetRateFire()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}}\& Aircraft\+Carrier\+Group\+::\+Weapon\+::\+Set\+Rate\+Fire (\begin{DoxyParamCaption}\item[{int}]{Rate\+Fire\+Tmp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Устанавливает скорострельность орудия 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Rate\+Fire\+Tmp} & Новый параметр скорострельности \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает измененные параметры оружия 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_weapon_a3a73357d6f4f8676192cc10f255e82d2}\label{class_aircraft_carrier_group_1_1_weapon_a3a73357d6f4f8676192cc10f255e82d2}} 
+\index{Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}!Set\+Weapon@{Set\+Weapon}}
+\index{Set\+Weapon@{Set\+Weapon}!Aircraft\+Carrier\+Group\+::\+Weapon@{Aircraft\+Carrier\+Group\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Set\+Weapon()}{SetWeapon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}}\& Aircraft\+Carrier\+Group\+::\+Weapon\+::\+Set\+Weapon (\begin{DoxyParamCaption}\item[{std\+::string}]{Weapon }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Устанавливает названия оружия 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}}} & Новое название оружия \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает измененные параметры оружия 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{class_aircraft_carrier_group_1_1_weapon_a3a73357d6f4f8676192cc10f255e82d2_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Sema/\+Desktop/\+Code\+Forces/\+Labs/4th\+\_\+\+Lab + library connection/\+Library/\mbox{\hyperlink{_weapon_8h}{Weapon.\+h}}\item 
+C\+:/\+Users/\+Sema/\+Desktop/\+Code\+Forces/\+Labs/4th\+\_\+\+Lab + library connection/\+Library/Weapon.\+cpp\end{DoxyCompactItemize}

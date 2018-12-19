@@ -1,0 +1,277 @@
+\hypertarget{class_aircraft_carrier_group_1_1_cover_ship}{}\section{Aircraft\+Carrier\+Group\+:\+:Cover\+Ship Class Reference}
+\label{class_aircraft_carrier_group_1_1_cover_ship}\index{Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}}
+
+
+Класс для описания судна прикрытия  Осуществляет хранение всех параметров судна прикрытия и содержит функции, обрабатывающие эти параметры  
+
+
+
+
+{\ttfamily \#include $<$Cover\+Ship.\+h$>$}
+
+
+
+Inheritance diagram for Aircraft\+Carrier\+Group\+:\+:Cover\+Ship\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{class_aircraft_carrier_group_1_1_cover_ship__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Aircraft\+Carrier\+Group\+:\+:Cover\+Ship\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aircraft_carrier_group_1_1_cover_ship__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_aa6c11517d19279d5a7387a1efc2f7a0f}\label{class_aircraft_carrier_group_1_1_cover_ship_aa6c11517d19279d5a7387a1efc2f7a0f}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_aa6c11517d19279d5a7387a1efc2f7a0f}{Cover\+Ship}} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_a3735bd14678da33bd128266774d21f64}{Cover\+Ship}} (std\+::string Call\+Tmp, const \mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \&Commander\+Tmp, int Crew\+Tmp, const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_military_characteristics}{Military\+Characteristics}} \&Military\+Tmp, std\+::string Disguised\+Tmp, int Amount\+Tmp, \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} $\ast$Arr\+Tmp)
+\begin{DoxyCompactList}\small\item\em Инициализирующий конструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_a2d57e8dba8f2e9abc30dececa2d7cfe2}{Cover\+Ship}} (const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship}{Cover\+Ship}} \&Cover\+Ship\+Tmp)
+\begin{DoxyCompactList}\small\item\em Копирующий конструктор \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a495afaecdaac83ce1358abbded27e226}\label{class_aircraft_carrier_group_1_1_cover_ship_a495afaecdaac83ce1358abbded27e226}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_a495afaecdaac83ce1358abbded27e226}{$\sim$\+Cover\+Ship}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_ae77dfb4b38d2d338c6189d10f1a56dc9}\label{class_aircraft_carrier_group_1_1_cover_ship_ae77dfb4b38d2d338c6189d10f1a56dc9}} 
+std\+::ostream \& \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_ae77dfb4b38d2d338c6189d10f1a56dc9}{print\+Info\+Weapon}} (std\+::ostream \&os) const
+\begin{DoxyCompactList}\small\item\em Выводит всю информацию обо всех орудиях на судне \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship}{Cover\+Ship}} \& \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_a135b4e20acbdb6bfbcb2cbb6df855d09}{Weapon\+Modification}} (std\+::string Name\+Weapon\+Tmp, const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \&Weapon\+Tmp)
+\begin{DoxyCompactList}\small\item\em Функция модифицирует выбранное, из имеющихся на корабле, орудие \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_abb7d3a8b6537811c8daf0574f6b7af59}\label{class_aircraft_carrier_group_1_1_cover_ship_abb7d3a8b6537811c8daf0574f6b7af59}} 
+double \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_abb7d3a8b6537811c8daf0574f6b7af59}{Time\+Fire\+All\+Weapons}} () const
+\begin{DoxyCompactList}\small\item\em Производит рассчет времени ведения огня всеми орудиями судна с полной скорострельностью \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_a3a08ec471959146e36e3d6c2fccf2159}{Damage\+All\+Planes}} () const
+\begin{DoxyCompactList}\small\item\em Производит расчет разрушений, которые могут нанести все самолеты судна условной цели за единицу времени \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a2e880c60db67934fba685100eec7ec84}\label{class_aircraft_carrier_group_1_1_cover_ship_a2e880c60db67934fba685100eec7ec84}} 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_a2e880c60db67934fba685100eec7ec84}{Damage\+All\+Weapons}} () const
+\begin{DoxyCompactList}\small\item\em Производит расчет разрушений, которые могут нанести все орудия судна условной цели за единицу времени \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship}{Cover\+Ship}} $\ast$ \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_aa6a5b007f5e05f9ad5cc300b8958309a}{clone}} () const
+\begin{DoxyCompactList}\small\item\em Клонирует данный корабль \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} $\ast$ \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_ab587c598ab12561d4ecad32c5f55a04e}{get\+Weapon}} (std\+::string Name) const
+\begin{DoxyCompactList}\small\item\em Функция получает описатель оружия по его названию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a256c7ec80309594f70f3c2e91b9b59d7}\label{class_aircraft_carrier_group_1_1_cover_ship_a256c7ec80309594f70f3c2e91b9b59d7}} 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_a256c7ec80309594f70f3c2e91b9b59d7}{Amount\+Weapon}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает количество вооружения на судне \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a0cc75b445352e2c2c816d9a31884372b}\label{class_aircraft_carrier_group_1_1_cover_ship_a0cc75b445352e2c2c816d9a31884372b}} 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_a0cc75b445352e2c2c816d9a31884372b}{Type\+Ship}} () const
+\begin{DoxyCompactList}\small\item\em Тип данного корабля \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_ac53b388322ccc63153ffc6edd2811d7c}{Amount\+Aircraft}} () const
+\begin{DoxyCompactList}\small\item\em Возвращет количество самолетов на палубе \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a9886f32975ab712d4ea697de7cfbbed9}\label{class_aircraft_carrier_group_1_1_cover_ship_a9886f32975ab712d4ea697de7cfbbed9}} 
+std\+::string \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship_a9886f32975ab712d4ea697de7cfbbed9}{Get\+Disguised}} () const
+\begin{DoxyCompactList}\small\item\em Возвращет название прикрываемого корабля \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a837108ccd9be789089a928f4f54475a4}\label{class_aircraft_carrier_group_1_1_cover_ship_a837108ccd9be789089a928f4f54475a4}} 
+virtual std\+::ostream \& {\bfseries show} (std\+::ostream \&os) const
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a36d39cc72b45e210d98fdefffc15b084}\label{class_aircraft_carrier_group_1_1_cover_ship_a36d39cc72b45e210d98fdefffc15b084}} 
+virtual std\+::istream \& {\bfseries get} (std\+::istream \&)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a3f5e205610aff2fe038edd191b0b0bc6}\label{class_aircraft_carrier_group_1_1_cover_ship_a3f5e205610aff2fe038edd191b0b0bc6}} 
+virtual std\+::ofstream \& {\bfseries fprint} (std\+::ofstream \&) const
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a3cc135df7a5265452491cd94e0d1cc63}\label{class_aircraft_carrier_group_1_1_cover_ship_a3cc135df7a5265452491cd94e0d1cc63}} 
+virtual std\+::ifstream \& {\bfseries fread} (std\+::ifstream \&)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_abc0b12ad28fd72761a33cc607abcaded}\label{class_aircraft_carrier_group_1_1_cover_ship_abc0b12ad28fd72761a33cc607abcaded}} 
+int {\bfseries AmountW}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a6d84cddcc009457bcbf538847696cc49}\label{class_aircraft_carrier_group_1_1_cover_ship_a6d84cddcc009457bcbf538847696cc49}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} $\ast$ {\bfseries ArrW}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_aca3c78d64da40c1249f2e9360030f01b}\label{class_aircraft_carrier_group_1_1_cover_ship_aca3c78d64da40c1249f2e9360030f01b}} 
+std\+::string {\bfseries Disguised}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_ab8e63b3a622b88cf4f646f4eccc00814}\label{class_aircraft_carrier_group_1_1_cover_ship_ab8e63b3a622b88cf4f646f4eccc00814}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship}{Cover\+Ship}} \&)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a7fd7e824e296c6274749d4a513fb2c60}\label{class_aircraft_carrier_group_1_1_cover_ship_a7fd7e824e296c6274749d4a513fb2c60}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&, \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship}{Cover\+Ship}} \&)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_aad872f064ca5a57c498532eb094736c3}\label{class_aircraft_carrier_group_1_1_cover_ship_aad872f064ca5a57c498532eb094736c3}} 
+std\+::ofstream \& {\bfseries operator$<$$<$} (std\+::ofstream \&os, const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship}{Cover\+Ship}} \&Ship\+Tmp)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a5b82b819d3b9c1c4a566a69de13b0f3f}\label{class_aircraft_carrier_group_1_1_cover_ship_a5b82b819d3b9c1c4a566a69de13b0f3f}} 
+std\+::ifstream \& {\bfseries operator$>$$>$} (std\+::ifstream \&is, \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship}{Cover\+Ship}} \&Ship\+Tmp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Класс для описания судна прикрытия  Осуществляет хранение всех параметров судна прикрытия и содержит функции, обрабатывающие эти параметры 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a3735bd14678da33bd128266774d21f64}\label{class_aircraft_carrier_group_1_1_cover_ship_a3735bd14678da33bd128266774d21f64}} 
+\index{Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}!Cover\+Ship@{Cover\+Ship}}
+\index{Cover\+Ship@{Cover\+Ship}!Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}}
+\subsubsection{\texorpdfstring{Cover\+Ship()}{CoverShip()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Aircraft\+Carrier\+Group\+::\+Cover\+Ship\+::\+Cover\+Ship (\begin{DoxyParamCaption}\item[{std\+::string}]{Call\+Tmp,  }\item[{const \mbox{\hyperlink{struct_aircraft_carrier_group_1_1_captain}{Captain}} \&}]{Commander\+Tmp,  }\item[{int}]{Crew\+Tmp,  }\item[{const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_military_characteristics}{Military\+Characteristics}} \&}]{Military\+Tmp,  }\item[{std\+::string}]{Disguised\+Tmp,  }\item[{int}]{Amount\+Tmp,  }\item[{\mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} $\ast$}]{Arr\+Tmp }\end{DoxyParamCaption})}
+
+
+
+Инициализирующий конструктор 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Call\+Tmp} & Название корабля \\
+\hline
+{\em Comander\+Tmp} & Капитан судна \\
+\hline
+{\em Crew\+Tmp} & Количество человек в команде \\
+\hline
+{\em Military\+Tmp} & Хранит общие характеристики техники \\
+\hline
+{\em Disguised\+Tmp} & Название прикрываемого корабля \\
+\hline
+{\em Amount\+Tmp} & Количество вооружения на корабле \\
+\hline
+{\em Arr\+Tmp} & Хранит описатели каждого оружия на корабле \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a2d57e8dba8f2e9abc30dececa2d7cfe2}\label{class_aircraft_carrier_group_1_1_cover_ship_a2d57e8dba8f2e9abc30dececa2d7cfe2}} 
+\index{Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}!Cover\+Ship@{Cover\+Ship}}
+\index{Cover\+Ship@{Cover\+Ship}!Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}}
+\subsubsection{\texorpdfstring{Cover\+Ship()}{CoverShip()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Aircraft\+Carrier\+Group\+::\+Cover\+Ship\+::\+Cover\+Ship (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship}{Cover\+Ship}} \&}]{Cover\+Ship\+Tmp }\end{DoxyParamCaption})}
+
+
+
+Копирующий конструктор 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Cover\+Ship\+Tmp} & Описатель корабля прикрытия \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_ac53b388322ccc63153ffc6edd2811d7c}\label{class_aircraft_carrier_group_1_1_cover_ship_ac53b388322ccc63153ffc6edd2811d7c}} 
+\index{Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}!Amount\+Aircraft@{Amount\+Aircraft}}
+\index{Amount\+Aircraft@{Amount\+Aircraft}!Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}}
+\subsubsection{\texorpdfstring{Amount\+Aircraft()}{AmountAircraft()}}
+{\footnotesize\ttfamily int Aircraft\+Carrier\+Group\+::\+Cover\+Ship\+::\+Amount\+Aircraft (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Возвращет количество самолетов на палубе 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Ship\+Type} & При попытке получить количество самолетов, поскольку этот тип кораблей не может иметь самолетов на палубе \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_aircraft_carrier_group_1_1_ship_a9121f438c35ce54745ab1cab229be222}{Aircraft\+Carrier\+Group\+::\+Ship}}.
+
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_aa6a5b007f5e05f9ad5cc300b8958309a}\label{class_aircraft_carrier_group_1_1_cover_ship_aa6a5b007f5e05f9ad5cc300b8958309a}} 
+\index{Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}!clone@{clone}}
+\index{clone@{clone}!Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}}
+\subsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship}{Cover\+Ship}}$\ast$ Aircraft\+Carrier\+Group\+::\+Cover\+Ship\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Клонирует данный корабль 
+
+\begin{DoxyReturn}{Returns}
+Возвращает указатель на область памяти, в котором хранится копия этого корабля 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_aircraft_carrier_group_1_1_ship_aec409c849026fa7d242fdd7de7ae9f02}{Aircraft\+Carrier\+Group\+::\+Ship}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{class_aircraft_carrier_group_1_1_cover_ship_aa6a5b007f5e05f9ad5cc300b8958309a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a3a08ec471959146e36e3d6c2fccf2159}\label{class_aircraft_carrier_group_1_1_cover_ship_a3a08ec471959146e36e3d6c2fccf2159}} 
+\index{Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}!Damage\+All\+Planes@{Damage\+All\+Planes}}
+\index{Damage\+All\+Planes@{Damage\+All\+Planes}!Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}}
+\subsubsection{\texorpdfstring{Damage\+All\+Planes()}{DamageAllPlanes()}}
+{\footnotesize\ttfamily int Aircraft\+Carrier\+Group\+::\+Cover\+Ship\+::\+Damage\+All\+Planes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Производит расчет разрушений, которые могут нанести все самолеты судна условной цели за единицу времени 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Ship\+Type} & При попытке рассчета урона всеми самолетам по условным целям, поскольку этот тип кораблей не может иметь самолетов на палубе \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_aircraft_carrier_group_1_1_ship_a2731c146c8edfc3a799661d249ccf522}{Aircraft\+Carrier\+Group\+::\+Ship}}.
+
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_ab587c598ab12561d4ecad32c5f55a04e}\label{class_aircraft_carrier_group_1_1_cover_ship_ab587c598ab12561d4ecad32c5f55a04e}} 
+\index{Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}!get\+Weapon@{get\+Weapon}}
+\index{get\+Weapon@{get\+Weapon}!Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}}
+\subsubsection{\texorpdfstring{get\+Weapon()}{getWeapon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} $\ast$ Aircraft\+Carrier\+Group\+::\+Cover\+Ship\+::get\+Weapon (\begin{DoxyParamCaption}\item[{std\+::string}]{Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Функция получает описатель оружия по его названию 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Name} & Название оружия \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает указатель на область памяти, в котором хранится описатель найденного оружия 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_aircraft_carrier_group_1_1_ship_a8ac6e8e9ed4f997a5f02fda7e049cd6d}{Aircraft\+Carrier\+Group\+::\+Ship}}.
+
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_cover_ship_a135b4e20acbdb6bfbcb2cbb6df855d09}\label{class_aircraft_carrier_group_1_1_cover_ship_a135b4e20acbdb6bfbcb2cbb6df855d09}} 
+\index{Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}!Weapon\+Modification@{Weapon\+Modification}}
+\index{Weapon\+Modification@{Weapon\+Modification}!Aircraft\+Carrier\+Group\+::\+Cover\+Ship@{Aircraft\+Carrier\+Group\+::\+Cover\+Ship}}
+\subsubsection{\texorpdfstring{Weapon\+Modification()}{WeaponModification()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft_carrier_group_1_1_cover_ship}{Cover\+Ship}} \& Aircraft\+Carrier\+Group\+::\+Cover\+Ship\+::\+Weapon\+Modification (\begin{DoxyParamCaption}\item[{std\+::string}]{Name\+Weapon\+Tmp,  }\item[{const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_weapon}{Weapon}} \&}]{Weapon\+Tmp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Функция модифицирует выбранное, из имеющихся на корабле, орудие 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Name\+Weapon\+Tmp} & Названия орудия, которое надо модифицировать \\
+\hline
+{\em Weapon\+Tmp} & Новое орудие \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_aircraft_carrier_group_1_1_ship_a3f91c1ad2960c095cfd88e85df0a3990}{Aircraft\+Carrier\+Group\+::\+Ship}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Sema/\+Desktop/\+Code\+Forces/\+Labs/4th\+\_\+\+Lab + library connection/\+Library/\mbox{\hyperlink{_cover_ship_8h}{Cover\+Ship.\+h}}\item 
+C\+:/\+Users/\+Sema/\+Desktop/\+Code\+Forces/\+Labs/4th\+\_\+\+Lab + library connection/\+Library/Cover\+Ship.\+cpp\end{DoxyCompactItemize}

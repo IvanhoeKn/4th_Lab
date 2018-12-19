@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_aircraft_carrier_group_1_1_military_characteristics.html" title="Класс для описания некоторых парметров техники &#160;Осуществляет хранение и обработку некоторых характери..." alt="" coords="5,39,164,80"/>
+<area shape="rect" id="node2" href="$class_aircraft_carrier_group_1_1_aircraft.html" title="Класс для описания самолета &#160;Осуществляет хранение всех параметров самолета и содержит функции..." alt="" coords="212,5,348,47"/>
+<area shape="rect" id="node3" href="$class_aircraft_carrier_group_1_1_ship.html" title="Абстрактный класс для описания кораблей &#160;Осуществляет хранение общих параметров кораблей и содержит ф..." alt="" coords="212,71,348,112"/>
+<area shape="rect" id="node4" href="$class_aircraft_carrier_group_1_1_carrier.html" title="Класс для описания авианосца &#160;Осуществляет хранение всех параметров авиносца и содержит функции..." alt="" coords="396,37,532,79"/>
+<area shape="rect" id="node6" href="$class_aircraft_carrier_group_1_1_cover_ship.html" title="Класс для описания судна прикрытия &#160;Осуществляет хранение всех параметров судна прикрытия и содержит ..." alt="" coords="396,103,532,144"/>
+<area shape="rect" id="node5" href="$class_aircraft_carrier_group_1_1_aircraft_carrier.html" title="Класс для описания авианесущего крейсера &#160;Осуществляет хранение всех параметров авианесущего крейсера..." alt="" coords="580,37,716,79"/>
+</map>

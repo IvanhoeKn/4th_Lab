@@ -1,0 +1,253 @@
+\hypertarget{class_aircraft_carrier_group_1_1_fleet}{}\section{Aircraft\+Carrier\+Group\+:\+:Fleet Class Reference}
+\label{class_aircraft_carrier_group_1_1_fleet}\index{Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}}
+
+
+Класс для описания флота  Осуществляет хранение описателей всех кораблей флота и содержит функции, позволяющие взаимодействовать с кораблями флота  
+
+
+
+
+{\ttfamily \#include $<$Fleet.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_acf50fa081cc25e4a7a688d47797ccce7}\label{class_aircraft_carrier_group_1_1_fleet_acf50fa081cc25e4a7a688d47797ccce7}} 
+typedef \mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Const\+Fleet\+It}} {\bfseries Const\+\_\+\+Iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a2ef466460d466153291eb4a4b62990a2}\label{class_aircraft_carrier_group_1_1_fleet_a2ef466460d466153291eb4a4b62990a2}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_a2ef466460d466153291eb4a4b62990a2}{Fleet}} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_afd8802987a6ff91b25cba30a140cc57a}{Fleet}} (const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet}{Fleet}} \&Navy)
+\begin{DoxyCompactList}\small\item\em Копирующий конструктор \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a8468d2f43ed82a39a8e885168626a5dd}\label{class_aircraft_carrier_group_1_1_fleet_a8468d2f43ed82a39a8e885168626a5dd}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_a8468d2f43ed82a39a8e885168626a5dd}{$\sim$\+Fleet}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_aac2a2f25ae1967ba39ab3334da38bb5c}\label{class_aircraft_carrier_group_1_1_fleet_aac2a2f25ae1967ba39ab3334da38bb5c}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Const\+\_\+\+Iterator}} {\bfseries find} (const std\+::string \&) const
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a239804d29253792f1abbc011ee752d63}\label{class_aircraft_carrier_group_1_1_fleet_a239804d29253792f1abbc011ee752d63}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Const\+\_\+\+Iterator}} {\bfseries begin} () const
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_ae0f445f9309b45e53a70cde913ab1192}\label{class_aircraft_carrier_group_1_1_fleet_ae0f445f9309b45e53a70cde913ab1192}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Const\+\_\+\+Iterator}} {\bfseries end} () const
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a410acdddcd290d3c0760b895cd1210f7}\label{class_aircraft_carrier_group_1_1_fleet_a410acdddcd290d3c0760b895cd1210f7}} 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_a410acdddcd290d3c0760b895cd1210f7}{Size\+Fleet}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает количество кораблей во флоте \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_ac2f313e4be33de186169699fe37163ab}{insert}} (std\+::string \&Call\+Tmp, \mbox{\hyperlink{class_aircraft_carrier_group_1_1_ship}{Ship}} $\ast$Ship\+Tmp)
+\begin{DoxyCompactList}\small\item\em Добавляет новый корабль во флот \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_a7fa09607af647d0fb7edce10b90d28a3}{remove}} (std\+::string \&Call\+Tmp)
+\begin{DoxyCompactList}\small\item\em Удаляет корабль из флота \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_af9ddb1220e3a01986eaa433e52fa7098}{transfer\+Fuel}} (\mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Fleet\+::\+Const\+\_\+\+Iterator}} \&it\+Fr, \mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Fleet\+::\+Const\+\_\+\+Iterator}} \&it\+To, const int Fuel)
+\begin{DoxyCompactList}\small\item\em Осуществляет перенос топлива с одного корабля на другой \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a3dc50b9a6145d8433c3d902f7dddf739}\label{class_aircraft_carrier_group_1_1_fleet_a3dc50b9a6145d8433c3d902f7dddf739}} 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_a3dc50b9a6145d8433c3d902f7dddf739}{Type\+Cover\+Ship}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает количество кораблей прикрытия в группе \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a0c5184e9f603c11e58c68ab34f0d0a30}\label{class_aircraft_carrier_group_1_1_fleet_a0c5184e9f603c11e58c68ab34f0d0a30}} 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_a0c5184e9f603c11e58c68ab34f0d0a30}{Type\+Carrier}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает количество авианесущих кораблей в группе \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a2ebc181699850e8bff283a281c22ea2b}\label{class_aircraft_carrier_group_1_1_fleet_a2ebc181699850e8bff283a281c22ea2b}} 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_a2ebc181699850e8bff283a281c22ea2b}{Type\+Aircraft\+Carrier}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает количество авианесущих крейсеров в группе \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_af7863ad9b057b0212b04019956254e8a}{Add\+Plane}} (const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_aircraft}{Aircraft}} \&Plane, const std\+::string \&Ship\+Tmp)
+\begin{DoxyCompactList}\small\item\em Добавление самолета в авианесущую группу \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_aa464eecb22e71128b6a01733d71fc27e}{Delete\+Plane}} (const std\+::string \&Ship\+Tmp)
+\begin{DoxyCompactList}\small\item\em Удаление самолета с корабля \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a3f8d69e2180159e964feb3ec41d442ee}\label{class_aircraft_carrier_group_1_1_fleet_a3f8d69e2180159e964feb3ec41d442ee}} 
+double \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_a3f8d69e2180159e964feb3ec41d442ee}{Max\+Duration\+Plane\+Fligth}} ()
+\begin{DoxyCompactList}\small\item\em Производит рассчет максимального времени полета всех самолетов авиагруппы \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_ad36b1f4f06ac7f267e61d7fed71c04ff}\label{class_aircraft_carrier_group_1_1_fleet_ad36b1f4f06ac7f267e61d7fed71c04ff}} 
+double \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_ad36b1f4f06ac7f267e61d7fed71c04ff}{Max\+Radius\+Plane\+Fligth}} ()
+\begin{DoxyCompactList}\small\item\em Производит рассчет максимального радуса полета всех самолетов авиагруппы \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_afdc755fad8b201aa497161a5ef63a97c}{Transfer\+Aircraft}} (\mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Fleet\+::\+Const\+\_\+\+Iterator}} \&From, \mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Fleet\+::\+Const\+\_\+\+Iterator}} \&To)
+\begin{DoxyCompactList}\small\item\em Осуществляет перенос самолета с одного корабля на другой \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_abe8311c40460ab1a8d32d9825980ca8a}\label{class_aircraft_carrier_group_1_1_fleet_abe8311c40460ab1a8d32d9825980ca8a}} 
+void \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_abe8311c40460ab1a8d32d9825980ca8a}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Очистка контейнера, в котором хранится информация обо всех кораблях авианесущей группы \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a34d66ddac9b45d0b64202486ed484074}\label{class_aircraft_carrier_group_1_1_fleet_a34d66ddac9b45d0b64202486ed484074}} 
+void \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet_a34d66ddac9b45d0b64202486ed484074}{Show}} ()
+\begin{DoxyCompactList}\small\item\em Вывод информации обо всех кораблях флота \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_aaa91e21c9a4b9c56d3bb5e57a92bb464}\label{class_aircraft_carrier_group_1_1_fleet_aaa91e21c9a4b9c56d3bb5e57a92bb464}} 
+\mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet}{Fleet}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet}{Fleet}} \&)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_ab159448042fb03231f44572ef8fd8075}\label{class_aircraft_carrier_group_1_1_fleet_ab159448042fb03231f44572ef8fd8075}} 
+class {\bfseries Const\+Fleet\+It}
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a21e2b274d6ab3bd444ecfeab143cd7e2}\label{class_aircraft_carrier_group_1_1_fleet_a21e2b274d6ab3bd444ecfeab143cd7e2}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet}{Fleet}} \&)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_ab81d2a31c8119517e381beab290f58fa}\label{class_aircraft_carrier_group_1_1_fleet_ab81d2a31c8119517e381beab290f58fa}} 
+std\+::ifstream \& {\bfseries operator$>$$>$} (std\+::ifstream \&, \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet}{Fleet}} \&)
+\item 
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_ace3fe0aa2dcee997b91fddf929e4f021}\label{class_aircraft_carrier_group_1_1_fleet_ace3fe0aa2dcee997b91fddf929e4f021}} 
+std\+::ofstream \& {\bfseries operator$<$$<$} (std\+::ofstream \&, const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet}{Fleet}} \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Класс для описания флота  Осуществляет хранение описателей всех кораблей флота и содержит функции, позволяющие взаимодействовать с кораблями флота 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_afd8802987a6ff91b25cba30a140cc57a}\label{class_aircraft_carrier_group_1_1_fleet_afd8802987a6ff91b25cba30a140cc57a}} 
+\index{Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}!Fleet@{Fleet}}
+\index{Fleet@{Fleet}!Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}}
+\subsubsection{\texorpdfstring{Fleet()}{Fleet()}}
+{\footnotesize\ttfamily Aircraft\+Carrier\+Group\+::\+Fleet\+::\+Fleet (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_fleet}{Fleet}} \&}]{Navy }\end{DoxyParamCaption})}
+
+
+
+Копирующий конструктор 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Cover\+Ship\+Tmp} & Описатель корабля прикрытия \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_af7863ad9b057b0212b04019956254e8a}\label{class_aircraft_carrier_group_1_1_fleet_af7863ad9b057b0212b04019956254e8a}} 
+\index{Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}!Add\+Plane@{Add\+Plane}}
+\index{Add\+Plane@{Add\+Plane}!Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}}
+\subsubsection{\texorpdfstring{Add\+Plane()}{AddPlane()}}
+{\footnotesize\ttfamily bool Aircraft\+Carrier\+Group\+::\+Fleet\+::\+Add\+Plane (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_aircraft_carrier_group_1_1_aircraft}{Aircraft}} \&}]{Plane,  }\item[{const std\+::string \&}]{Ship\+Tmp }\end{DoxyParamCaption})}
+
+
+
+Добавление самолета в авианесущую группу 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Plane} & Самолет, информацию о котором необходимо внести в группу \\
+\hline
+{\em Ship\+Tmp} & Корабль, на который будет добавляться самолте \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{class_aircraft_carrier_group_1_1_fleet_af7863ad9b057b0212b04019956254e8a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_aa464eecb22e71128b6a01733d71fc27e}\label{class_aircraft_carrier_group_1_1_fleet_aa464eecb22e71128b6a01733d71fc27e}} 
+\index{Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}!Delete\+Plane@{Delete\+Plane}}
+\index{Delete\+Plane@{Delete\+Plane}!Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}}
+\subsubsection{\texorpdfstring{Delete\+Plane()}{DeletePlane()}}
+{\footnotesize\ttfamily bool Aircraft\+Carrier\+Group\+::\+Fleet\+::\+Delete\+Plane (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Ship\+Tmp }\end{DoxyParamCaption})}
+
+
+
+Удаление самолета с корабля 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ship\+Tmp} & Корабль, с которого будет производиться удаление самолета \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{class_aircraft_carrier_group_1_1_fleet_aa464eecb22e71128b6a01733d71fc27e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_ac2f313e4be33de186169699fe37163ab}\label{class_aircraft_carrier_group_1_1_fleet_ac2f313e4be33de186169699fe37163ab}} 
+\index{Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}!insert@{insert}}
+\index{insert@{insert}!Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily bool Aircraft\+Carrier\+Group\+::\+Fleet\+::insert (\begin{DoxyParamCaption}\item[{std\+::string \&}]{Call\+Tmp,  }\item[{\mbox{\hyperlink{class_aircraft_carrier_group_1_1_ship}{Ship}} $\ast$}]{Ship\+Tmp }\end{DoxyParamCaption})}
+
+
+
+Добавляет новый корабль во флот 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Call\+Tmp} & Позывной нового корабля \\
+\hline
+{\em Ship\+Tmp} & Указатель на область памяти, в котором хранится вся информация о корабле \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{class_aircraft_carrier_group_1_1_fleet_ac2f313e4be33de186169699fe37163ab_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_a7fa09607af647d0fb7edce10b90d28a3}\label{class_aircraft_carrier_group_1_1_fleet_a7fa09607af647d0fb7edce10b90d28a3}} 
+\index{Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}!remove@{remove}}
+\index{remove@{remove}!Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily bool Aircraft\+Carrier\+Group\+::\+Fleet\+::remove (\begin{DoxyParamCaption}\item[{std\+::string \&}]{Call\+Tmp }\end{DoxyParamCaption})}
+
+
+
+Удаляет корабль из флота 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Call\+Tmp} & Позывной удаляемого корабля \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_afdc755fad8b201aa497161a5ef63a97c}\label{class_aircraft_carrier_group_1_1_fleet_afdc755fad8b201aa497161a5ef63a97c}} 
+\index{Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}!Transfer\+Aircraft@{Transfer\+Aircraft}}
+\index{Transfer\+Aircraft@{Transfer\+Aircraft}!Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}}
+\subsubsection{\texorpdfstring{Transfer\+Aircraft()}{TransferAircraft()}}
+{\footnotesize\ttfamily int Aircraft\+Carrier\+Group\+::\+Fleet\+::\+Transfer\+Aircraft (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Fleet\+::\+Const\+\_\+\+Iterator}} \&}]{From,  }\item[{\mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Fleet\+::\+Const\+\_\+\+Iterator}} \&}]{To }\end{DoxyParamCaption})}
+
+
+
+Осуществляет перенос самолета с одного корабля на другой 
+
+
+\begin{DoxyParams}{Parameters}
+{\em From} & Корабль, с которого берется самолет \\
+\hline
+{\em To} & Корабль, на который переносится самолет \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_aircraft_carrier_group_1_1_fleet_afdc755fad8b201aa497161a5ef63a97c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aircraft_carrier_group_1_1_fleet_af9ddb1220e3a01986eaa433e52fa7098}\label{class_aircraft_carrier_group_1_1_fleet_af9ddb1220e3a01986eaa433e52fa7098}} 
+\index{Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}!transfer\+Fuel@{transfer\+Fuel}}
+\index{transfer\+Fuel@{transfer\+Fuel}!Aircraft\+Carrier\+Group\+::\+Fleet@{Aircraft\+Carrier\+Group\+::\+Fleet}}
+\subsubsection{\texorpdfstring{transfer\+Fuel()}{transferFuel()}}
+{\footnotesize\ttfamily int Aircraft\+Carrier\+Group\+::\+Fleet\+::transfer\+Fuel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Fleet\+::\+Const\+\_\+\+Iterator}} \&}]{it\+Fr,  }\item[{\mbox{\hyperlink{class_aircraft_carrier_group_1_1_const_fleet_it}{Fleet\+::\+Const\+\_\+\+Iterator}} \&}]{it\+To,  }\item[{const int}]{Fuel }\end{DoxyParamCaption})}
+
+
+
+Осуществляет перенос топлива с одного корабля на другой 
+
+
+\begin{DoxyParams}{Parameters}
+{\em it\+Fr} & Корабль, с которого берется топливо \\
+\hline
+{\em it\+To} & Корабль, на который переносится топливо \\
+\hline
+{\em Fuel} & Количество топлива, которое необходимо перенести \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Sema/\+Desktop/\+Code\+Forces/\+Labs/4th\+\_\+\+Lab + library connection/\+Library/\mbox{\hyperlink{_fleet_8h}{Fleet.\+h}}\item 
+C\+:/\+Users/\+Sema/\+Desktop/\+Code\+Forces/\+Labs/4th\+\_\+\+Lab + library connection/\+Library/Fleet.\+cpp\end{DoxyCompactItemize}

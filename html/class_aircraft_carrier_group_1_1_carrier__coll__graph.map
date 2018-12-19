@@ -1,0 +1,7 @@
+<map id="AircraftCarrierGroup::Carrier" name="AircraftCarrierGroup::Carrier">
+<area shape="rect" id="node2" href="$class_aircraft_carrier_group_1_1_ship.html" title="Абстрактный класс для описания кораблей &#160;Осуществляет хранение общих параметров кораблей и содержит ф..." alt="" coords="287,44,423,85"/>
+<area shape="rect" id="node3" href="$class_aircraft_carrier_group_1_1_military_characteristics.html" title="Класс для описания некоторых парметров техники &#160;Осуществляет хранение и обработку некоторых характери..." alt="" coords="5,71,164,112"/>
+<area shape="rect" id="node5" href="$class_aircraft_carrier_group_1_1_aircraft.html" title="Класс для описания самолета &#160;Осуществляет хранение всех параметров самолета и содержит функции..." alt="" coords="287,109,423,151"/>
+<area shape="rect" id="node4" href="$struct_aircraft_carrier_group_1_1_captain.html" title="Структура для описания капитана &#160;Осуществляет хранение всех параметров командира судна или флота ..." alt="" coords="17,5,153,47"/>
+<area shape="rect" id="node6" href="$class_aircraft_carrier_group_1_1_weapon.html" title="Класс для описания вооружения &#160;Осуществляет хранение всех параметров авианесущего крейсера и содержит..." alt="" coords="17,136,153,177"/>
+</map>

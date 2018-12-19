@@ -1,0 +1,4 @@
+<map id="AircraftCarrierGroup::Ship" name="AircraftCarrierGroup::Ship">
+<area shape="rect" id="node2" href="$class_aircraft_carrier_group_1_1_military_characteristics.html" title="Класс для описания некоторых парметров техники &#160;Осуществляет хранение и обработку некоторых характери..." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node3" href="$struct_aircraft_carrier_group_1_1_captain.html" title="Структура для описания капитана &#160;Осуществляет хранение всех параметров командира судна или флота ..." alt="" coords="189,5,325,47"/>
+</map>
